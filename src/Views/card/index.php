@@ -73,10 +73,10 @@ $socials = [
             <!-- Contenedor del Logo (Estilo Anillos como CHT) -->
             <div class="relative inline-flex items-center justify-center mb-6 mt-4">
                 <div class="absolute inset-0 bg-blue-500/20 rounded-full blur-xl ring-anim"></div>
-                <div class="absolute inset-[-15px] border border-blue-500/20 rounded-full"></div>
-                <div class="absolute inset-[-30px] border border-gray-700/30 rounded-full"></div>
-                <div class="w-28 h-28 rounded-full bg-[#0a1128] border border-gray-700/60 flex items-center justify-center relative shadow-2xl p-5">
-                    <img src="/assets/images/logo.svg" alt="<?= e($siteName) ?>" class="w-full h-auto drop-shadow-md">
+                <div class="absolute inset-[-15px] border border-blue-500/20 rounded-3xl"></div>
+                <div class="absolute inset-[-30px] border border-gray-700/30 rounded-3xl"></div>
+                <div class="w-auto px-8 h-24 rounded-2xl bg-[#0a1128] border border-gray-700/60 flex items-center justify-center relative shadow-2xl">
+                    <img src="/assets/images/logo-dark.png" alt="<?= e($siteName) ?>" class="h-14 w-auto drop-shadow-md">
                 </div>
             </div>
 

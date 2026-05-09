@@ -15,7 +15,7 @@
 <div class="w-full max-w-sm">
     <!-- Logo -->
     <div class="text-center mb-8">
-        <img src="/assets/images/logo.svg" alt="Innovate" class="w-14 h-auto mx-auto mb-4 drop-shadow-xl">
+        <img src="/assets/images/logo-dark.png" alt="Innovate" class="h-16 w-auto mx-auto mb-4 drop-shadow-xl">
         <h1 class="text-2xl font-bold text-white">Panel Admin</h1>
         <p class="text-gray-500 text-sm mt-1">Ingresa tus credenciales para continuar</p>
     </div>
