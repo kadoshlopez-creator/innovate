@@ -15,7 +15,7 @@ $navLinks   = ['/' => 'Inicio', '/servicios' => 'Servicios', '/contacto' => 'Con
 
             <!-- Logo -->
             <a href="/" class="flex items-center gap-3 group">
-                <img src="/assets/images/logo-dark.png" alt="Innovate" class="h-10 w-auto drop-shadow-md transition-transform group-hover:scale-105">
+                <img src="/assets/images/logo-dark.png" alt="Innovate" class="h-14 w-auto drop-shadow-md transition-transform group-hover:scale-105">
             </a>
 
             <!-- Desktop nav -->

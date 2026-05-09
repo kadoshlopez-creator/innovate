@@ -30,7 +30,7 @@ $unread = $authUser ? \App\Models\Contact::unreadCount() : 0;
     <!-- Logo -->
     <div class="h-16 flex items-center px-6 border-b border-gray-800">
         <a href="/admin/dashboard" class="flex items-center gap-3">
-            <img src="/assets/images/logo-dark.png" alt="Innovate" class="h-10 w-auto">
+            <img src="/assets/images/logo-dark.png" alt="Innovate" class="h-12 w-auto">
         </a>
     </div>
 

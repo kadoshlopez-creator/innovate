@@ -75,8 +75,8 @@ $socials = [
                 <div class="absolute inset-0 bg-blue-500/20 rounded-full blur-xl ring-anim"></div>
                 <div class="absolute inset-[-15px] border border-blue-500/20 rounded-3xl"></div>
                 <div class="absolute inset-[-30px] border border-gray-700/30 rounded-3xl"></div>
-                <div class="w-auto px-8 h-24 rounded-2xl bg-[#0a1128] border border-gray-700/60 flex items-center justify-center relative shadow-2xl">
-                    <img src="/assets/images/logo-dark.png" alt="<?= e($siteName) ?>" class="h-14 w-auto drop-shadow-md">
+                <div class="w-auto px-8 h-28 rounded-2xl bg-[#0a1128] border border-gray-700/60 flex items-center justify-center relative shadow-2xl">
+                    <img src="/assets/images/logo-dark.png" alt="<?= e($siteName) ?>" class="h-16 w-auto drop-shadow-md">
                 </div>
             </div>
 
