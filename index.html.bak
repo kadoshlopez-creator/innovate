@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es-MX" class="scroll-smooth">
+  <head>
+    <!-- Metadatos básicos -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- SEO Primario -->
+    <title>
+      Innovate | Soluciones Tecnológicas: Desarrollo Web, Soporte TI y Seguridad
+      Informática
+    </title>
+    <meta
+      name="description"
+      content="Expertos en desarrollo web, apps móviles, soporte técnico 24/7 y seguridad informática. Transformamos tu negocio con tecnología de vanguardia en México."
+    />
+    <meta
+      name="keywords"
+      content="desarrollo web, soporte técnico, apps móviles, seguridad informática, consultoría IT, cursos tecnología, México"
+    />
+
+    <!-- Open Graph / Redes Sociales -->
+    <meta
+      property="og:title"
+      content="Innovate | Soluciones Tecnológicas Integrales"
+    />
+    <meta
+      property="og:description"
+      content="Expertos en desarrollo web, apps móviles y soporte técnico profesional en México."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://innov4te.com" />
+    <meta
+      property="og:image"
+      content="https://innov4te.com/assets/img/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_MX" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Innovate | Soluciones Tecnológicas en México"
+    />
+    <meta
+      name="twitter:description"
+      content="Desarrollo web, apps móviles y soporte TI especializado."
+    />
+    <meta
+      name="twitter:image"
+      content="https://innov4te.com/assets/img/twitter-card.jpg"
+    />
+
+    <!-- Favicon (Generado en realfavicongenerator.net) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg" sizes="32x32" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2563eb" />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://innov4te.com" />
+
+    <!-- Preconexión y precarga -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .gradient-text {
+        background: linear-gradient(90deg, #2563eb, #7c3aed);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      .tech-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .footer-wave {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+      .footer-wave svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 100px;
+      }
+      .footer-wave .shape-fill {
+        fill: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <img
+              src="./logo.svg"
+              alt="Logo Innovate"
+              class="w-40 h-auto"
+              width="200"
+              height="60"
+            />
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#inicio" class="hover:text-blue-600 transition-colors"
+              >Inicio</a
+            >
+            <a href="#servicios" class="hover:text-blue-600 transition-colors"
+              >Servicios</a
+            >
+            <a href="#tecnologias" class="hover:text-blue-600 transition-colors"
+              >Tecnologías</a
+            >
+            <a href="#contacto" class="hover:text-blue-600 transition-colors"
+              >Contacto</a
+            >
+          </div>
+          <button class="md:hidden text-2xl text-gray-700">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Banner Principal -->
+    <section
+      id="inicio"
+      class="relative pt-32 pb-20 overflow-hidden bg-gradient-to-r from-blue-50 to-purple-50"
+    >
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center">
+          <div class="lg:w-1/2 mb-12 lg:mb-0">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <span class="gradient-text">Soluciones Tecnológicas</span>
+              para tu Negocio
+            </h1>
+            <p class="text-xl text-gray-600 mb-8">
+              Desde soporte técnico hasta desarrollo personalizado, impulsamos
+              tu transformación digital
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#contacto"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all"
+              >
+                Contactar Ahora
+              </a>
+              <a
+                href="#servicios"
+                class="border border-gray-300 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium transition-all"
+              >
+                Ver Servicios
+              </a>
+            </div>
+          </div>
+          <div class="lg:w-1/2 floating">
+            <img
+              src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Soporte Técnico"
+              class="rounded-xl shadow-xl border-4 border-white"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios Destacados -->
+    <section id="servicios" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-4">Nuestros Servicios</h2>
+        <p class="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          Soluciones personalizadas para cada necesidad tecnológica
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Soporte Técnico -->
+          <div
+            class="service-card bg-white rounded-xl p-8 border border-gray-200 shadow-sm transition-all duration-300"
+          >
+            <div class="flex items-start mb-6">
+              <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                <i class="fas fa-headset text-blue-600 text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold">Soporte Técnico 24/7</h3>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Soporte Técnico"
+              class="rounded-lg mb-6 w-full h-48 object-cover"
+            />
+            <p class="text-gray-600 mb-4">
+              Asistencia técnica especializada con tiempos de respuesta
+              garantizados:
+            </p>
+            <ul class="space-y-2 mb-6 text-gray-700">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i> Soporte
+                remoto y presencial
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i> Monitoreo
+                proactivo
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i> Respuesta
+                en menos de 15 minutos
+              </li>
+            </ul>
+            <a
+              href="#contacto"
+              class="text-blue-600 hover:text-blue-700 flex items-center transition-colors"
+            >
+              Solicitar servicio <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Desarrollo Web -->
+          <div
+            class="service-card bg-white rounded-xl p-8 border border-gray-200 shadow-sm transition-all duration-300"
+          >
+            <div class="flex items-start mb-6">
+              <div class="bg-purple-100 p-3 rounded-lg mr-4">
+                <i class="fas fa-code text-purple-600 text-2xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold">Desarrollo Web</h3>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Desarrollo Web"
+              class="rounded-lg mb-6 w-full h-48 object-cover"
+            />
+            <p class="text-gray-600 mb-4">
+              Creación de plataformas web modernas y escalables:
+            </p>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Tecnologías:</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li class="flex items-center">
+                    <i class="fas fa-caret-right text-purple-500 mr-2"></i>
+                    React.js
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-caret-right text-purple-500 mr-2"></i>
+                    Node.js
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Beneficios:</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li class="flex items-center">
+                    <i class="fas fa-caret-right text-purple-500 mr-2"></i>
+                    Diseño responsive
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-caret-right text-purple-500 mr-2"></i>
+                    Optimización SEO
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <a
+              href="#contacto"
+              class="text-purple-600 hover:text-purple-700 flex items-center transition-colors"
+            >
+              Cotizar proyecto <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section id="tecnologias" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-4">
+          Tecnologías que Implementamos
+        </h2>
+        <p class="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          Trabajamos con las herramientas más modernas del mercado
+        </p>
+
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+        >
+          <!-- AWS -->
+          <div
+            class="tech-card bg-white rounded-lg p-6 border border-gray-200 shadow-sm transition-all duration-300 flex flex-col items-center"
+          >
+            <img
+              src="https://cdn.worldvectorlogo.com/logos/aws-2.svg"
+              alt="AWS"
+              class="h-12 mb-3"
+            />
+            <span class="text-gray-700">AWS</span>
+          </div>
+
+          <!-- React -->
+          <div
+            class="tech-card bg-white rounded-lg p-6 border border-gray-200 shadow-sm transition-all duration-300 flex flex-col items-center"
+          >
+            <img
+              src="https://cdn.worldvectorlogo.com/logos/react-2.svg"
+              alt="React"
+              class="h-12 mb-3"
+            />
+            <span class="text-gray-700">React</span>
+          </div>
+
+          <!-- Python -->
+          <div
+            class="tech-card bg-white rounded-lg p-6 border border-gray-200 shadow-sm transition-all duration-300 flex flex-col items-center"
+          >
+            <img
+              src="https://cdn.worldvectorlogo.com/logos/python-5.svg"
+              alt="Python"
+              class="h-12 mb-3"
+            />
+            <span class="text-gray-700">Python</span>
+          </div>
+
+          <!-- Node.js -->
+          <div
+            class="tech-card bg-white rounded-lg p-6 border border-gray-200 shadow-sm transition-all duration-300 flex flex-col items-center"
+          >
+            <img
+              src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg"
+              alt="Node.js"
+              class="h-12 mb-3"
+            />
+            <span class="text-gray-700">Node.js</span>
+          </div>
+
+          <!-- Flutter -->
+          <div
+            class="tech-card bg-white rounded-lg p-6 border border-gray-200 shadow-sm transition-all duration-300 flex flex-col items-center"
+          >
+            <img
+              src="https://cdn.worldvectorlogo.com/logos/flutter-logo.svg"
+              alt="Flutter"
+              class="h-12 mb-3"
+            />
+            <span class="text-gray-700">Flutter</span>
+          </div>
+
+          <!-- Azure -->
+          <div
+            class="tech-card bg-white rounded-lg p-6 border border-gray-200 shadow-sm transition-all duration-300 flex flex-col items-center"
+          >
+            <img
+              src="https://cdn.worldvectorlogo.com/logos/azure-2.svg"
+              alt="Azure"
+              class="h-12 mb-3"
+            />
+            <span class="text-gray-700">Azure</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Espectacular -->
+    <footer class="relative bg-gray-900 text-white pt-20 pb-12">
+      <!-- Onda decorativa -->
+      <div class="footer-wave">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            opacity=".25"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+            opacity=".5"
+            class="shape-fill"
+          ></path>
+          <path
+            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <!-- Columna 1 -->
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-3 mb-6">
+              <img
+                src="./logo-dark.png"
+                alt="Logo Innovate"
+                class="w-40 h-auto"
+                width="200"
+                height="60"
+              />
+            </div>
+            <p class="text-gray-300 mb-6">
+              Líderes en innovación tecnológica, transformando ideas en
+              soluciones digitales desde 2023.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-400 flex items-center justify-center transition-colors"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 hover:bg-purple-600 flex items-center justify-center transition-colors"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-700 flex items-center justify-center transition-colors"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Columna 2 -->
+          <div>
+            <h3 class="text-lg font-semibold mb-6 text-white">Servicios</h3>
+            <ul class="space-y-3 text-gray-300">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Soporte Técnico</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Desarrollo Web</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Apps Móviles</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Seguridad IT</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Consultoría</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Columna 3 -->
+          <div>
+            <h3 class="text-lg font-semibold mb-6 text-white">Contacto</h3>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+                <span>Panamá, Ciudad de Panamá</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-phone mt-1 mr-3 text-blue-400"></i>
+                <span>+507 6630-3262</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
+                <span>info@innov4te.com</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-clock mt-1 mr-3 text-blue-400"></i>
+                <span>Lun-Vie: 9am - 6pm</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Columna 4 -->
+          <div>
+            <h3 class="text-lg font-semibold mb-6 text-white">Newsletter</h3>
+            <p class="text-gray-300 mb-4">
+              Suscríbete para recibir nuestras últimas noticias y ofertas.
+            </p>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Tu correo"
+                class="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+              />
+              <button
+                type="submit"
+                class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition-colors"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400"
+        >
+          <p>
+            © 2023 Innovate. Todos los derechos reservados. |
+            <a href="#" class="hover:text-white transition-colors"
+              >Política de Privacidad</a
+            >
+            |
+            <a href="#" class="hover:text-white transition-colors"
+              >Términos de Servicio</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Efecto de scroll para navbar
+      window.addEventListener("scroll", function () {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 50) {
+          nav.classList.add("shadow-md");
+          nav.classList.remove("shadow-sm");
+        } else {
+          nav.classList.remove("shadow-md");
+          nav.classList.add("shadow-sm");
+        }
+      });
+    </script>
+  </body>
+</html>

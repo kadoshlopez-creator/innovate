@@ -1,0 +1,35 @@
+Options -Indexes
+
+# ── Security Headers ──────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    # Prevent MIME-type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    # Control referrer information
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    # Restrict browser features
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    # Basic XSS protection for older browsers
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# ── Force HTTPS (enable in production, comment out for local dev) ─────────────
+# <IfModule mod_rewrite.c>
+#     RewriteCond %{HTTPS} off
+#     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# ── Front Controller ─────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# ── Protect sensitive files ───────────────────────────────────────────────────
+<FilesMatch "^(\.env|composer\.(json|lock)|\.htaccess)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
