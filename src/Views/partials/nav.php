@@ -1,7 +1,7 @@
 <?php
 $siteName   = \App\Models\Setting::get('site_name', 'Innovate');
 $currentUri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-$navLinks   = ['/' => 'Inicio', '/servicios' => 'Servicios', '/contacto' => 'Contacto'];
+$navLinks   = ['/' => 'Inicio', '/#planes' => 'Planes', '/#portafolio' => 'Portafolio', '/servicios' => 'Servicios', '/contacto' => 'Contacto'];
 ?>
 <header x-data="{ open:false, scrolled:false }"
         x-init="window.addEventListener('scroll', ()=> scrolled = window.scrollY > 40)"

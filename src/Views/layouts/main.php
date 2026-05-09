@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= e($title ?? 'Inicio') ?> — <?= e(\App\Models\Setting::get('site_name', 'Innovate')) ?></title>
+    <title>Innovate | Arquitectura robusta. Negocios imparables.</title>
     <meta name="description" content="<?= e(\App\Models\Setting::get('site_description', '')) ?>">
+    <link rel="icon" type="image/png" href="/assets/images/logo-dark.png?v=1.1">
+    <link rel="shortcut icon" type="image/png" href="/assets/images/logo-dark.png?v=1.1">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -39,9 +41,9 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         :root {
-            --bg:      #020817;
-            --surface: rgba(255,255,255,0.025);
-            --border:  rgba(255,255,255,0.07);
+            --bg:      #000000;
+            --surface: rgba(255,255,255,0.015);
+            --border:  rgba(255,255,255,0.05);
             --sky:     #38bdf8;
             --violet:  #a78bfa;
         }
@@ -56,11 +58,11 @@
 
         /* ── Gradient text ─────────────────────────────────────── */
         .gradient-text {
-            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #a78bfa 100%);
+            background: linear-gradient(135deg, #38bdf8 0%, #fb923c 50%, #f97316 100%);
             -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
         }
         .gradient-text-anim {
-            background: linear-gradient(135deg, #38bdf8, #818cf8, #a78bfa, #38bdf8);
+            background: linear-gradient(135deg, #38bdf8, #fb923c, #f97316, #38bdf8);
             background-size: 300% 300%;
             -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
             animation: gradientShift 5s ease infinite;
@@ -100,9 +102,9 @@
 
         /* ── Aurora orb ────────────────────────────────────────── */
         @keyframes auroraDrift {
-            0%,100%{transform:translate(0,0) scale(1); opacity:.45}
-            33%{transform:translate(50px,-70px) scale(1.2); opacity:.65}
-            66%{transform:translate(-35px,40px) scale(.85); opacity:.3}
+            0%,100%{transform:translate(0,0) scale(1); opacity:.25}
+            33%{transform:translate(50px,-70px) scale(1.2); opacity:.4}
+            66%{transform:translate(-35px,40px) scale(.85); opacity:.15}
         }
         .aurora { animation: auroraDrift 10s ease-in-out infinite; border-radius:50%; filter:blur(90px); pointer-events:none; }
         .aurora-slow { animation: auroraDrift 14s ease-in-out infinite reverse; }
@@ -131,16 +133,16 @@
         /* ── Neon border btn ───────────────────────────────────── */
         .btn-neon {
             position:relative; overflow:hidden;
-            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            background: linear-gradient(135deg, #0ea5e9, #f97316);
             transition: all .3s ease;
         }
         .btn-neon::before {
             content:''; position:absolute; inset:-1px; border-radius:inherit;
-            background: linear-gradient(135deg, #38bdf8, #818cf8, #a78bfa);
+            background: linear-gradient(135deg, #38bdf8, #fb923c, #f97316);
             z-index:-1; opacity:0; transition:opacity .3s;
         }
         .btn-neon:hover::before { opacity:1; }
-        .btn-neon:hover { box-shadow: 0 0 30px rgba(56,189,248,.4), 0 0 60px rgba(99,102,241,.2); transform:translateY(-1px); }
+        .btn-neon:hover { box-shadow: 0 0 30px rgba(56,189,248,.4), 0 0 60px rgba(249,115,22,.2); transform:translateY(-1px); }
 
         .btn-ghost {
             background: rgba(255,255,255,.04);
@@ -170,7 +172,7 @@
         }
     </style>
 </head>
-<body class="bg-[#020817] antialiased overflow-x-hidden">
+<body class="bg-black antialiased overflow-x-hidden">
 
     <?php include ROOT . '/src/Views/partials/nav.php'; ?>
 
