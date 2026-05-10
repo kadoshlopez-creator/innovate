@@ -15,6 +15,8 @@ require ROOT . '/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(ROOT);
 $dotenv->safeLoad();
 
+require ROOT . '/src/Helpers/lang.php';
+
 $debug = ($_ENV['APP_DEBUG'] ?? 'false') === 'true';
 
 if ($debug) {

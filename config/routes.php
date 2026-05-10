@@ -4,6 +4,7 @@ use App\Controllers\HomeController;
 use App\Controllers\ServicesController;
 use App\Controllers\ContactController;
 use App\Controllers\CardController;
+use App\Controllers\LangController;
 use App\Controllers\Admin\AuthController;
 use App\Controllers\Admin\DashboardController;
 use App\Controllers\Admin\ServicesController as AdminServicesController;
@@ -17,6 +18,7 @@ $router->get('/servicios/{slug}',     [ServicesController::class, 'show']);
 $router->get('/contacto',             [ContactController::class,  'index']);
 $router->post('/contacto',            [ContactController::class,  'store']);
 $router->get('/card',                 [CardController::class,     'index']);
+$router->get('/lang/{code}',          [LangController::class,     'switch']);
 
 // ── Admin auth ────────────────────────────────────────────
 $router->get('/admin',                [AuthController::class,    'index']);

@@ -22,11 +22,11 @@
 
 
                 <h1 class="text-5xl sm:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">
-                    <span class="text-orange-500">Arquitectura robusta</span> donde otros solo ven código.
+                    <span class="text-orange-500"><?= __('hero.title.part1', 'Arquitectura robusta') ?></span> <?= __('hero.title.part2', 'donde otros solo ven código.') ?>
                 </h1>
 
                 <p class="text-slate-300 text-lg leading-relaxed mb-10 max-w-lg">
-                    No solo creamos software; edificamos los cimientos técnicos necesarios para que su visión de negocio sea escalable, segura y eficiente.
+                    <?= __('hero.desc') ?>
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 mb-14">
@@ -34,7 +34,7 @@
                         <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform">
                             <i class="fas fa-arrow-right"></i>
                         </div>
-                        COTIZA CON NOSOTROS
+                        <?= strtoupper(__('hero.cta.start')) ?>
                     </a>
                 </div>
             </div>

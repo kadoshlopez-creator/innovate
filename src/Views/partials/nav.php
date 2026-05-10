@@ -1,7 +1,12 @@
 <?php
 $siteName   = \App\Models\Setting::get('site_name', 'Innovate');
 $currentUri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-$navLinks   = ['/' => 'Inicio', '/#planes' => 'Planes', '/#portafolio' => 'Portafolio', '/servicios' => 'Servicios', '/contacto' => 'Contacto'];
+$navLinks   = [
+    '/'            => __('nav.about'),
+    '/#portafolio' => __('nav.portfolio'),
+    '/servicios'   => __('nav.services'),
+    '/#planes'     => __('nav.process')
+];
 ?>
 <header x-data="{ open:false, scrolled:false }"
         x-init="window.addEventListener('scroll', ()=> scrolled = window.scrollY > 40)"
@@ -34,12 +39,37 @@ $navLinks   = ['/' => 'Inicio', '/#planes' => 'Planes', '/#portafolio' => 'Porta
                 <?php endforeach; ?>
             </nav>
 
-            <!-- CTA + hamburger -->
-            <div class="flex items-center gap-3">
+            <!-- CTA + Lang + hamburger -->
+            <div class="flex items-center gap-10">
                 <a href="/contacto"
                    class="hidden md:inline-flex items-center gap-2 btn-neon text-white px-5 py-2.5 rounded-xl text-sm font-semibold">
-                    Empezar <i class="fas fa-arrow-right text-xs"></i>
+                    <?= __('nav.contact') ?> <i class="fas fa-arrow-right text-xs"></i>
                 </a>
+
+                <!-- Language Switcher -->
+                <div class="flex items-center p-1.5 bg-white/[0.04] border border-white/[0.08] rounded-2xl backdrop-blur-md">
+                    <a href="/lang/es" 
+                       class="relative px-4 py-2 rounded-xl text-xs font-black tracking-wide transition-all duration-300
+                              <?= current_lang() === 'es' 
+                                  ? 'bg-gradient-to-br from-sky-500 to-blue-600 text-white shadow-lg shadow-sky-500/25 scale-105' 
+                                  : 'text-slate-500 hover:text-slate-300' ?>">
+                        ES
+                        <?php if (current_lang() === 'es'): ?>
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-orange-500 rounded-full shadow-[0_0_8px_rgba(249,115,22,0.8)]"></span>
+                        <?php endif; ?>
+                    </a>
+                    <a href="/lang/en" 
+                       class="relative px-4 py-2 rounded-xl text-xs font-black tracking-wide transition-all duration-300
+                              <?= current_lang() === 'en' 
+                                  ? 'bg-gradient-to-br from-sky-500 to-blue-600 text-white shadow-lg shadow-sky-500/25 scale-105' 
+                                  : 'text-slate-500 hover:text-slate-300' ?>">
+                        EN
+                        <?php if (current_lang() === 'en'): ?>
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-orange-500 rounded-full shadow-[0_0_8px_rgba(249,115,22,0.8)]"></span>
+                        <?php endif; ?>
+                    </a>
+                </div>
+
                 <button @click="open = !open"
                         class="md:hidden w-9 h-9 glass rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-colors border border-white/[0.07]">
                     <i class="fas text-sm" :class="open ? 'fa-times' : 'fa-bars'"></i>
@@ -67,7 +97,7 @@ $navLinks   = ['/' => 'Inicio', '/#planes' => 'Planes', '/#portafolio' => 'Porta
                 <?php endforeach; ?>
                 <div class="pt-1 px-1">
                     <a href="/contacto" class="block text-center btn-neon text-white py-2.5 rounded-xl text-sm font-semibold">
-                        Empezar Proyecto
+                        <?= __('nav.contact') ?>
                     </a>
                 </div>
             </div>

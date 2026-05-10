@@ -12,15 +12,37 @@ class Service extends Model
 
     public static function active(): array
     {
-        $stmt = static::db()->query(
-            "SELECT * FROM services WHERE active = 1 ORDER BY order_index ASC, id ASC"
-        );
+        $lang = current_lang();
+        $sql = "SELECT *, 
+                IFNULL(NULLIF(title_{$lang}, ''), title) as title,
+                IFNULL(NULLIF(short_description_{$lang}, ''), short_description) as short_description,
+                IFNULL(NULLIF(description_{$lang}, ''), description) as description
+                FROM services WHERE active = 1 ORDER BY order_index ASC, id ASC";
+        
+        if ($lang === 'es') {
+            $sql = "SELECT * FROM services WHERE active = 1 ORDER BY order_index ASC, id ASC";
+        }
+
+        $stmt = static::db()->query($sql);
         return $stmt->fetchAll();
     }
 
     public static function findBySlug(string $slug): ?array
     {
-        return static::findWhere('slug', $slug);
+        $lang = current_lang();
+        if ($lang === 'es') {
+            return static::findWhere('slug', $slug);
+        }
+
+        $stmt = static::db()->prepare(
+            "SELECT *, 
+             IFNULL(NULLIF(title_{$lang}, ''), title) as title,
+             IFNULL(NULLIF(short_description_{$lang}, ''), short_description) as short_description,
+             IFNULL(NULLIF(description_{$lang}, ''), description) as description
+             FROM services WHERE slug = ? LIMIT 1"
+        );
+        $stmt->execute([$slug]);
+        return $stmt->fetch() ?: null;
     }
 
     public static function create(array $data): int

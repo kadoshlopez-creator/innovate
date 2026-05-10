@@ -1,6 +1,6 @@
 <?php
 $siteName = \App\Models\Setting::get('site_name', 'Innovate');
-$siteDesc = \App\Models\Setting::get('site_description', 'Transformamos ideas en soluciones tecnológicas de alto impacto.');
+$siteDesc = __('footer.description');
 $email    = 'ventas@innovate.com.pa';
 $phone    = '6538-9819';
 $address  = \App\Models\Setting::get('contact_address', 'Panama City, Panama');
@@ -49,7 +49,7 @@ $year     = date('Y');
             <!-- Services -->
             <?php if ($services): ?>
             <div>
-                <h4 class="text-white font-semibold text-xs uppercase tracking-widest mb-5">Servicios</h4>
+                <h4 class="text-white font-semibold text-xs uppercase tracking-widest mb-5"><?= __('footer.services') ?></h4>
                 <ul class="space-y-3">
                     <?php foreach (array_slice($services, 0, 6) as $s): ?>
                     <li>
@@ -66,7 +66,7 @@ $year     = date('Y');
 
             <!-- Contact -->
             <div>
-                <h4 class="text-white font-semibold text-xs uppercase tracking-widest mb-5">Contacto</h4>
+                <h4 class="text-white font-semibold text-xs uppercase tracking-widest mb-5"><?= __('footer.contact') ?></h4>
                 <ul class="space-y-3.5">
                     <?php
                     $contacts = [
@@ -96,9 +96,9 @@ $year     = date('Y');
 
         <!-- Bottom bar -->
         <div class="pt-8 border-t border-white/[0.05] flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p class="text-slate-600 text-sm">© <?= $year ?> <?= e($siteName) ?>. Todos los derechos reservados.</p>
+            <p class="text-slate-600 text-sm">© <?= $year ?> <?= e($siteName) ?>. <?= current_lang() === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.' ?></p>
             <p class="text-slate-700 text-xs flex items-center gap-1.5">
-                Hecho con <i class="fas fa-heart text-red-500/70 text-[10px]"></i> en Panama
+                <?= current_lang() === 'es' ? 'Hecho con' : 'Made with' ?> <i class="fas fa-heart text-red-500/70 text-[10px]"></i> <?= current_lang() === 'es' ? 'en Panama' : 'in Panama' ?>
             </p>
         </div>
     </div>
