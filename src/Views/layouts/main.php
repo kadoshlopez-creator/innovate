@@ -219,7 +219,7 @@
 
     <!-- Floating WhatsApp Button -->
     <?php 
-    $waPhone = preg_replace('/[^0-9]/', '', \App\Models\Setting::get('contact_phone', ''));
+    $waPhone = '65389819';
     if ($waPhone): 
     ?>
     <a href="https://wa.me/<?= $waPhone ?>" target="_blank" rel="noopener noreferrer"

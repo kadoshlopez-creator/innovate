@@ -1,8 +1,8 @@
 <?php
 $siteName = \App\Models\Setting::get('site_name', 'Innovate');
 $siteDesc = \App\Models\Setting::get('site_description', 'Transformamos ideas en soluciones tecnológicas de alto impacto.');
-$email    = \App\Models\Setting::get('contact_email', 'ventas@innovate.com.pa');
-$phone    = \App\Models\Setting::get('contact_phone', '6538-9819');
+$email    = 'ventas@innovate.com.pa';
+$phone    = '6538-9819';
 $address  = \App\Models\Setting::get('contact_address', 'Panama City, Panama');
 $facebook = \App\Models\Setting::get('social_facebook', '');
 $instagram= \App\Models\Setting::get('social_instagram', '');
