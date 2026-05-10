@@ -5,7 +5,8 @@ $navLinks   = [
     '/'            => __('nav.about'),
     '/#portafolio' => __('nav.portfolio'),
     '/servicios'   => __('nav.services'),
-    '/#planes'     => __('nav.process')
+    '/#planes'     => __('nav.plans'),
+    '/#proceso'    => __('nav.process')
 ];
 ?>
 <header x-data="{ open:false, scrolled:false }"

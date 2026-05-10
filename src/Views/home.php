@@ -14,7 +14,7 @@
     <!-- Radial vignette -->
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,#000000_80%)]"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-28 lg:py-0 min-h-screen flex items-center">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 lg:py-0 min-h-screen flex items-center">
         <div class="grid lg:grid-cols-2 gap-16 items-start w-full">
 
             <!-- Left: text -->
@@ -43,9 +43,9 @@
             <div x-data="{ 
                     current: 0, 
                     slides: [
-                        { img: '/assets/images/project-pamel.png?v=1.1', label: 'Caso de Éxito', title: 'E-Learning Personalizado' },
-                        { img: '/assets/images/project-pediatria.png?v=1.1', label: 'Salud & Tecnología', title: 'Portal Médico Pro' },
-                        { img: '/assets/images/project-rucma.png?v=1.1', label: 'Software a Medida', title: 'Certificación Digital RUCMA' }
+                        { img: '/assets/images/project-pamel.png?v=1.1', label: '<?= __('home.hero.s1.label') ?>', title: '<?= __('home.hero.s1.title') ?>' },
+                        { img: '/assets/images/project-pediatria.png?v=1.1', label: '<?= __('home.hero.s2.label') ?>', title: '<?= __('home.hero.s2.title') ?>' },
+                        { img: '/assets/images/project-rucma.png?v=1.1', label: '<?= __('home.hero.s3.label') ?>', title: '<?= __('home.hero.s3.title') ?>' }
                     ],
                     next() { this.current = (this.current + 1) % this.slides.length },
                     prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length }
@@ -129,66 +129,66 @@
 <!-- ══════════════════════════════════════════════════════
      PLANES
 ══════════════════════════════════════════════════════ -->
-<section id="planes" class="py-28 relative overflow-hidden">
-    <hr class="line-gradient mb-28 max-w-4xl mx-auto">
+<section id="planes" class="py-16 relative overflow-hidden">
+    <hr class="line-gradient mb-16 max-w-4xl mx-auto">
     <div class="absolute inset-0 dot-bg opacity-30"></div>
     <div class="aurora absolute top-0 left-0 w-[500px] h-[500px] bg-orange-600/10" style="animation-delay:1s"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 reveal">
-            <div class="section-label mb-4 inline-flex border-orange-500/30 bg-orange-500/10 text-orange-400">Planes transparentes</div>
+            <div class="section-label mb-4 inline-flex border-orange-500/30 bg-orange-500/10 text-orange-400"><?= __('home.plans.label') ?></div>
             <h2 class="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tight">
-                Elige tu <span class="gradient-text">Plan</span>
+                <?= __('home.plans.title.part1') ?> <span class="gradient-text"><?= __('home.plans.title.part2') ?></span>
             </h2>
             <p class="text-slate-400 max-w-lg mx-auto">
-                Sin cargos ocultos. Escalables a medida que tu negocio crece.
+                <?= __('home.plans.desc') ?>
             </p>
         </div>
 
         <div class="grid lg:grid-cols-3 gap-8 items-start">
             <!-- Basic Plan -->
             <div class="glass border border-white/[0.07] rounded-3xl p-8 flex flex-col group reveal" style="transition-delay: 0ms;">
-                <h3 class="text-xl font-bold text-white mb-2">Básico</h3>
-                <p class="text-slate-400 text-sm mb-6">Ideal para empezar con una presencia sólida en línea.</p>
+                <h3 class="text-xl font-bold text-white mb-2"><?= __('home.plans.basic.title') ?></h3>
+                <p class="text-slate-400 text-sm mb-6"><?= __('home.plans.basic.desc') ?></p>
 
-                <a href="/contacto?plan=basico" class="w-full text-center glass border border-white/[0.1] hover:border-sky-500/50 hover:bg-sky-500/10 text-white font-semibold py-3 rounded-xl transition-all duration-300 mb-8">Elegir Plan</a>
+                <a href="/contacto?plan=basico" class="w-full text-center glass border border-white/[0.1] hover:border-sky-500/50 hover:bg-sky-500/10 text-white font-semibold py-3 rounded-xl transition-all duration-300 mb-8"><?= __('home.plans.cta') ?></a>
                 <div class="space-y-4 flex-1">
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Diseño One-Page</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Dominio por 1 año</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Hosting básico incluido</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Formulario de contacto</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-times text-slate-600 mt-1 text-sm"></i><span class="text-slate-500 text-sm">Mantenimiento mensual</span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.basic.f1') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.basic.f2') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.basic.f3') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.basic.f4') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-times text-slate-600 mt-1 text-sm"></i><span class="text-slate-500 text-sm"><?= __('home.plans.basic.f5') ?></span></div>
                 </div>
             </div>
 
             <!-- Pro Plan (Highlighted) -->
             <div class="glass border border-orange-500/30 bg-orange-500/5 rounded-3xl p-8 flex flex-col group reveal relative scale-100 lg:scale-105 z-10 shadow-[0_0_40px_rgba(249,115,22,0.15)]" style="transition-delay: 100ms;">
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full">Recomendado</div>
-                <h3 class="text-xl font-bold text-white mb-2">Profesional</h3>
-                <p class="text-slate-400 text-sm mb-6">Para negocios establecidos que buscan captar más clientes.</p>
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full"><?= __('home.plans.recommended') ?></div>
+                <h3 class="text-xl font-bold text-white mb-2"><?= __('home.plans.pro.title') ?></h3>
+                <p class="text-slate-400 text-sm mb-6"><?= __('home.plans.pro.desc') ?></p>
 
-                <a href="/contacto?plan=profesional" class="w-full text-center btn-neon text-white font-semibold py-3 rounded-xl transition-all duration-300 mb-8">Elegir Plan</a>
+                <a href="/contacto?plan=profesional" class="w-full text-center btn-neon text-white font-semibold py-3 rounded-xl transition-all duration-300 mb-8"><?= __('home.plans.cta') ?></a>
                 <div class="space-y-4 flex-1">
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-orange-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Diseño Multi-Página (hasta 5)</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-orange-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Dominio y Hosting (1 año)</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-orange-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Optimización SEO Básico</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-orange-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Integración con WhatsApp</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-orange-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">1 mes de mantenimiento gratis</span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-orange-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.pro.f1') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-orange-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.pro.f2') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-orange-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.pro.f3') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-orange-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.pro.f4') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-orange-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.pro.f5') ?></span></div>
                 </div>
             </div>
 
             <!-- Enterprise Plan -->
             <div class="glass border border-white/[0.07] rounded-3xl p-8 flex flex-col group reveal" style="transition-delay: 200ms;">
-                <h3 class="text-xl font-bold text-white mb-2">Corporativo</h3>
-                <p class="text-slate-400 text-sm mb-6">Soluciones avanzadas para empresas con grandes demandas.</p>
+                <h3 class="text-xl font-bold text-white mb-2"><?= __('home.plans.enterprise.title') ?></h3>
+                <p class="text-slate-400 text-sm mb-6"><?= __('home.plans.enterprise.desc') ?></p>
 
-                <a href="/contacto?plan=corporativo" class="w-full text-center glass border border-white/[0.1] hover:border-sky-500/50 hover:bg-sky-500/10 text-white font-semibold py-3 rounded-xl transition-all duration-300 mb-8">Cotizar a Medida</a>
+                <a href="/contacto?plan=corporativo" class="w-full text-center glass border border-white/[0.1] hover:border-sky-500/50 hover:bg-sky-500/10 text-white font-semibold py-3 rounded-xl transition-all duration-300 mb-8"><?= __('home.plans.cta_enterprise') ?></a>
                 <div class="space-y-4 flex-1">
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Diseño UI/UX a medida</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Tienda en Línea o Panel Admin</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Integración con APIs externas</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Arquitectura Cloud Escalable</span></div>
-                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Soporte técnico prioritario</span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.enterprise.f1') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.enterprise.f2') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.enterprise.f3') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.enterprise.f4') ?></span></div>
+                    <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm"><?= __('home.plans.enterprise.f5') ?></span></div>
                 </div>
             </div>
         </div>
@@ -198,17 +198,17 @@
 <!-- ══════════════════════════════════════════════════════
      PORTAFOLIO (NUESTROS CLIENTES)
 ══════════════════════════════════════════════════════ -->
-<section id="portafolio" class="py-28 relative overflow-hidden z-20 border-t border-white/[0.05]" style="display: block !important; opacity: 1 !important;">
+<section id="portafolio" class="py-16 relative overflow-hidden z-20 border-t border-white/[0.05]" style="display: block !important; opacity: 1 !important;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header: Forced Visibility -->
-        <div class="text-center mb-20" style="opacity: 1 !important; transform: none !important;">
-            <div class="section-label mb-4 inline-flex border-orange-500/30 bg-orange-500/10 text-orange-400">Nuestros Casos de Éxito</div>
+        <div class="text-center mb-12" style="opacity: 1 !important; transform: none !important;">
+            <div class="section-label mb-4 inline-flex border-orange-500/30 bg-orange-500/10 text-orange-400"><?= __('home.portfolio.label') ?></div>
             <h2 class="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tight">
-                Portafolio de <span class="gradient-text">Diseño Web</span>
+                <?= __('home.portfolio.title.part1') ?> <span class="gradient-text"><?= __('home.portfolio.title.part2') ?></span>
             </h2>
             <p class="text-slate-400 max-w-lg mx-auto">
-                Soluciones digitales robustas que transforman la visión de nuestros clientes en realidad.
+                <?= __('home.portfolio.desc') ?>
             </p>
         </div>
 
@@ -270,18 +270,18 @@
      SERVICES
 ══════════════════════════════════════════════════════ -->
 <?php if (!empty($services)): ?>
-<section class="py-28 relative overflow-hidden">
+<section class="py-16 relative overflow-hidden">
     <div class="absolute inset-0 dot-bg opacity-30"></div>
     <div class="aurora absolute top-0 right-0 w-[500px] h-[500px] bg-violet-600/8" style="animation-delay:2s"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 reveal">
-            <div class="section-label mb-4 inline-flex">Lo que hacemos</div>
+        <div class="text-center mb-12 reveal">
+            <div class="section-label mb-4 inline-flex"><?= __('home.services.label') ?></div>
             <h2 class="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tight">
-                Nuestros <span class="gradient-text">Servicios</span>
+                <?= __('home.services.title.part1') ?> <span class="gradient-text"><?= __('home.services.title.part2') ?></span>
             </h2>
             <p class="text-slate-400 max-w-lg mx-auto">
-                Un portafolio completo de soluciones tecnológicas para llevar tu empresa al siguiente nivel.
+                <?= __('home.services.desc') ?>
             </p>
         </div>
 
@@ -305,7 +305,7 @@
 
                 <!-- Arrow -->
                 <div class="flex items-center gap-2 text-sky-400 text-sm font-semibold group-hover:gap-3 transition-all duration-300">
-                    Ver detalle
+                    <?= __('home.services.view_detail') ?>
                     <div class="w-6 h-6 bg-sky-500/15 rounded-lg flex items-center justify-center group-hover:bg-sky-500/30 transition-colors">
                         <i class="fas fa-arrow-right text-xs"></i>
                     </div>
@@ -320,29 +320,29 @@
 <!-- ══════════════════════════════════════════════════════
      WHY US
 ══════════════════════════════════════════════════════ -->
-<section class="py-28 relative overflow-hidden">
-    <hr class="line-gradient mb-28 max-w-4xl mx-auto">
+<section class="py-16 relative overflow-hidden">
+    <hr class="line-gradient mb-16 max-w-4xl mx-auto">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-20 items-center">
 
             <!-- Left: headline + features -->
             <div class="reveal">
-                <div class="section-label mb-6 inline-flex">Por qué elegirnos</div>
+                <div class="section-label mb-6 inline-flex"><?= __('home.why.label') ?></div>
                 <h2 class="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight tracking-tight">
-                    Tu éxito es nuestra<br><span class="gradient-text">prioridad absoluta</span>
+                    <?= __('home.why.title.part1') ?><br><span class="gradient-text"><?= __('home.why.title.part2') ?></span>
                 </h2>
                 <p class="text-slate-400 leading-relaxed mb-10">
-                    Combinamos profundidad técnica con visión de negocio para entregar soluciones que generan resultados medibles desde el primer día.
+                    <?= __('home.why.desc') ?>
                 </p>
 
                 <div class="space-y-4">
                     <?php
                     $features = [
-                        ['fas fa-bolt',        '#38bdf8', 'bg-sky-500/10 border-sky-500/15',    'Entrega Ágil',       'Sprints cortos, feedback continuo y lanzamientos rápidos sin sacrificar calidad.'],
-                        ['fas fa-shield-alt',  '#a78bfa', 'bg-violet-500/10 border-violet-500/15', 'Seguridad Nativa',  'Prácticas de seguridad integradas desde la arquitectura, no como un añadido.'],
-                        ['fas fa-headset',     '#34d399', 'bg-green-500/10 border-green-500/15', 'Soporte 24/7',      'Tu negocio nunca duerme, nosotros tampoco. Respuesta garantizada en minutos.'],
-                        ['fas fa-chart-line',  '#fb923c', 'bg-orange-500/10 border-orange-500/15', 'ROI Medible',       'Métricas claras y KPIs alineados a tus objetivos desde el día uno.'],
+                        ['fas fa-bolt',        '#38bdf8', 'bg-sky-500/10 border-sky-500/15',    __('home.why.f1.title'), __('home.why.f1.desc')],
+                        ['fas fa-shield-alt',  '#a78bfa', 'bg-violet-500/10 border-violet-500/15', __('home.why.f2.title'), __('home.why.f2.desc')],
+                        ['fas fa-headset',     '#34d399', 'bg-green-500/10 border-green-500/15', __('home.why.f3.title'), __('home.why.f3.desc')],
+                        ['fas fa-chart-line',  '#fb923c', 'bg-orange-500/10 border-orange-500/15', __('home.why.f4.title'), __('home.why.f4.desc')],
                     ];
                     foreach ($features as [$icon, $color, $bg, $title, $desc]):
                     ?>
@@ -363,10 +363,10 @@
             <div class="grid grid-cols-2 gap-4 reveal" style="transition-delay:150ms">
                 <?php
                 $bigStats = [
-                    ['50+',   'Proyectos\nCompletados', 'fas fa-check-circle', '#38bdf8', 'from-sky-900/30 to-sky-900/10 border-sky-500/15'],
-                    ['98%',   'Clientes\nSatisfechos',  'fas fa-heart',        '#f472b6', 'from-pink-900/30 to-pink-900/10 border-pink-500/15'],
-                    ['<24h',  'Tiempo de\nRespuesta',   'fas fa-clock',        '#34d399', 'from-green-900/30 to-green-900/10 border-green-500/15'],
-                    ['5+',    'Países\nAtendidos',      'fas fa-globe',        '#fb923c', 'from-orange-900/30 to-orange-900/10 border-orange-500/15'],
+                    ['99.9%', __('home.stats.uptime'),   'fas fa-server',         '#38bdf8', 'from-sky-900/30 to-sky-900/10 border-sky-500/15'],
+                    ['SECURE', __('home.stats.secure'),   'fas fa-shield-halved',  '#f472b6', 'from-pink-900/30 to-pink-900/10 border-pink-500/15'],
+                    ['<500ms', __('home.stats.latency'),  'fas fa-bolt-lightning', '#34d399', 'from-green-900/30 to-green-900/10 border-green-500/15'],
+                    ['SCALABLE', __('home.stats.scalable'), 'fas fa-layer-group',    '#fb923c', 'from-orange-900/30 to-orange-900/10 border-orange-500/15'],
                 ];
                 foreach ($bigStats as [$val, $label, $icon, $color, $gradient]):
                 ?>
@@ -386,15 +386,15 @@
 <!-- ══════════════════════════════════════════════════════
      PROCESS
 ══════════════════════════════════════════════════════ -->
-<section class="py-28 relative overflow-hidden">
-    <hr class="line-gradient mb-28 max-w-4xl mx-auto">
+<section id="proceso" class="py-16 relative overflow-hidden">
+    <hr class="line-gradient mb-16 max-w-4xl mx-auto">
     <div class="aurora absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-sky-500/5"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 reveal">
-            <div class="section-label mb-4 inline-flex">Cómo trabajamos</div>
+        <div class="text-center mb-12 reveal">
+            <div class="section-label mb-4 inline-flex"><?= __('home.process.label') ?></div>
             <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight">
-                Proceso <span class="gradient-text">transparente</span>
+                <?= __('home.process.title.part1') ?> <span class="gradient-text"><?= __('home.process.title.part2') ?></span>
             </h2>
         </div>
 
@@ -404,10 +404,10 @@
 
             <?php
             $steps = [
-                ['01', 'fas fa-search',       '#38bdf8', 'Descubrimiento',  'Analizamos tu negocio, objetivos y requerimientos técnicos en profundidad.'],
-                ['02', 'fas fa-pencil-ruler',  '#a78bfa', 'Diseño',          'Arquitectamos la solución y creamos prototipos que validan la idea antes de construir.'],
-                ['03', 'fas fa-code',          '#34d399', 'Desarrollo',      'Implementamos con metodología ágil, entregas iterativas y código de calidad.'],
-                ['04', 'fas fa-rocket',        '#fb923c', 'Lanzamiento',     'Desplegamos, monitorizamos y te acompañamos en el crecimiento continuo.'],
+                ['01', 'fas fa-search',       '#38bdf8', __('home.process.s1.title'),  __('home.process.s1.desc')],
+                ['02', 'fas fa-pencil-ruler',  '#a78bfa', __('home.process.s2.title'),  __('home.process.s2.desc')],
+                ['03', 'fas fa-code',          '#34d399', __('home.process.s3.title'),  __('home.process.s3.desc')],
+                ['04', 'fas fa-rocket',        '#fb923c', __('home.process.s4.title'),  __('home.process.s4.desc')],
             ];
             foreach ($steps as $i => [$num, $icon, $color, $title, $desc]):
             ?>
@@ -432,8 +432,8 @@
 <!-- ══════════════════════════════════════════════════════
      CTA
 ══════════════════════════════════════════════════════ -->
-<section class="py-28 relative overflow-hidden">
-    <hr class="line-gradient mb-28 max-w-4xl mx-auto">
+<section class="py-16 relative overflow-hidden">
+    <hr class="line-gradient mb-16 max-w-4xl mx-auto">
 
     <!-- Aurora bg -->
     <div class="absolute inset-0 bg-gradient-to-br from-sky-950/20 via-black to-violet-950/20"></div>
@@ -443,19 +443,19 @@
 
     <div class="relative z-10 max-w-4xl mx-auto text-center px-4 reveal">
         <div class="glass border border-white/[0.08] rounded-[2rem] p-12 sm:p-16">
-            <div class="section-label mb-6 inline-flex">¿Tienes un proyecto?</div>
+            <div class="section-label mb-6 inline-flex"><?= __('home.cta.label') ?></div>
             <h2 class="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight tracking-tight">
-                Hagamos algo<br><span class="gradient-text-anim">extraordinario</span> juntos
+                <?= __('home.cta.title.part1') ?><br><span class="gradient-text-anim"><?= __('home.cta.title.part2') ?></span> <?= __('home.cta.title.part3') ?>
             </h2>
             <p class="text-slate-400 text-lg mb-10 max-w-lg mx-auto">
-                Consultoría gratuita. Sin compromisos. Cuéntanos tu idea y te respondemos en menos de 24 horas.
+                <?= __('home.cta.desc') ?>
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/contacto" class="btn-neon inline-flex items-center justify-center gap-2.5 text-white px-10 py-4 rounded-2xl font-bold text-base">
-                    Contactar Ahora <i class="fas fa-arrow-right"></i>
+                    <?= __('home.cta.btn_main') ?> <i class="fas fa-arrow-right"></i>
                 </a>
                 <a href="/servicios" class="btn-ghost inline-flex items-center justify-center gap-2.5 text-slate-300 hover:text-white px-10 py-4 rounded-2xl font-semibold text-base">
-                    Ver Servicios
+                    <?= __('home.cta.btn_sec') ?>
                 </a>
             </div>
         </div>

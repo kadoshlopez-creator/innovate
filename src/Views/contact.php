@@ -9,12 +9,12 @@ $contactAddr  = \App\Models\Setting::get('contact_address', 'Panama City, Panama
     <div class="aurora absolute top-0 right-0 w-[500px] h-[400px] bg-violet-600/10"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="section-label mb-5 inline-flex">Hablemos</div>
+        <div class="section-label mb-5 inline-flex"><?= __('contact.label') ?></div>
         <h1 class="text-5xl sm:text-6xl font-black text-white mb-5 tracking-tight">
-            Inicia tu <span class="gradient-text">proyecto</span>
+            <?= __('contact.title.part1') ?> <span class="gradient-text"><?= __('contact.title.part2') ?></span>
         </h1>
         <p class="text-slate-400 text-lg max-w-lg mx-auto">
-            Cuéntanos tu idea. Te respondemos en menos de 24 horas con un plan de acción sin costo.
+            <?= __('contact.desc') ?>
         </p>
     </div>
 </section>

@@ -98,7 +98,7 @@ $year     = date('Y');
         <div class="pt-8 border-t border-white/[0.05] flex flex-col sm:flex-row justify-between items-center gap-4">
             <p class="text-slate-600 text-sm">© <?= $year ?> <?= e($siteName) ?>. <?= current_lang() === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.' ?></p>
             <p class="text-slate-700 text-xs flex items-center gap-1.5">
-                <?= current_lang() === 'es' ? 'Hecho con' : 'Made with' ?> <i class="fas fa-heart text-red-500/70 text-[10px]"></i> <?= current_lang() === 'es' ? 'en Panama' : 'in Panama' ?>
+                <?= __('footer.made_by') ?>
             </p>
         </div>
     </div>

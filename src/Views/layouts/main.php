@@ -225,7 +225,7 @@
     <a href="https://wa.me/<?= $waPhone ?>" target="_blank" rel="noopener noreferrer"
        class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe57] text-white px-5 py-3 rounded-full shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 group">
         <i class="fab fa-whatsapp text-2xl"></i>
-        <span class="font-medium text-[15px] hidden md:inline-block pr-1">¿Cómo puedo ayudarte?</span>
+        <span class="font-medium text-[15px] hidden md:inline-block pr-1"><?= __('whatsapp.text') ?></span>
     </a>
     <?php endif; ?>
 </body>
