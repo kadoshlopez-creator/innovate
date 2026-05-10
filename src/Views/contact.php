@@ -1,6 +1,6 @@
 <?php
-$contactEmail = 'ventas@innovate.com.pa';
-$contactPhone = '6538-9819';
+$contactEmail = \App\Models\Setting::get('contact_email', 'ventas@innovate.com.pa');
+$contactPhone = \App\Models\Setting::get('contact_phone', '6538-9819');
 $contactAddr  = \App\Models\Setting::get('contact_address', 'Panama City, Panama');
 ?>
 <!-- Hero -->
