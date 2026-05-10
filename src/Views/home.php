@@ -26,7 +26,7 @@
                 </h1>
 
                 <p class="text-slate-300 text-lg leading-relaxed mb-10 max-w-lg">
-                    Desarrollamos los motores digitales que impulsan plataformas a medida y ecosistemas empresariales robustos. No solo creamos software; edificamos los cimientos técnicos necesarios para que su visión de negocio sea escalable, segura y eficiente.
+                    No solo creamos software; edificamos los cimientos técnicos necesarios para que su visión de negocio sea escalable, segura y eficiente.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 mb-14">
@@ -150,10 +150,7 @@
             <div class="glass border border-white/[0.07] rounded-3xl p-8 flex flex-col group reveal" style="transition-delay: 0ms;">
                 <h3 class="text-xl font-bold text-white mb-2">Básico</h3>
                 <p class="text-slate-400 text-sm mb-6">Ideal para empezar con una presencia sólida en línea.</p>
-                <div class="mb-8">
-                    <span class="text-4xl font-black text-white">$499</span>
-                    <span class="text-slate-500 text-sm">/pago único</span>
-                </div>
+
                 <a href="/contacto?plan=basico" class="w-full text-center glass border border-white/[0.1] hover:border-sky-500/50 hover:bg-sky-500/10 text-white font-semibold py-3 rounded-xl transition-all duration-300 mb-8">Elegir Plan</a>
                 <div class="space-y-4 flex-1">
                     <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Diseño One-Page</span></div>
@@ -169,10 +166,7 @@
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full">Recomendado</div>
                 <h3 class="text-xl font-bold text-white mb-2">Profesional</h3>
                 <p class="text-slate-400 text-sm mb-6">Para negocios establecidos que buscan captar más clientes.</p>
-                <div class="mb-8">
-                    <span class="text-4xl font-black text-white">$999</span>
-                    <span class="text-slate-500 text-sm">/pago único</span>
-                </div>
+
                 <a href="/contacto?plan=profesional" class="w-full text-center btn-neon text-white font-semibold py-3 rounded-xl transition-all duration-300 mb-8">Elegir Plan</a>
                 <div class="space-y-4 flex-1">
                     <div class="flex items-start gap-3"><i class="fas fa-check text-orange-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Diseño Multi-Página (hasta 5)</span></div>
@@ -187,10 +181,7 @@
             <div class="glass border border-white/[0.07] rounded-3xl p-8 flex flex-col group reveal" style="transition-delay: 200ms;">
                 <h3 class="text-xl font-bold text-white mb-2">Corporativo</h3>
                 <p class="text-slate-400 text-sm mb-6">Soluciones avanzadas para empresas con grandes demandas.</p>
-                <div class="mb-8">
-                    <span class="text-4xl font-black text-white">$1999+</span>
-                    <span class="text-slate-500 text-sm">/proyecto</span>
-                </div>
+
                 <a href="/contacto?plan=corporativo" class="w-full text-center glass border border-white/[0.1] hover:border-sky-500/50 hover:bg-sky-500/10 text-white font-semibold py-3 rounded-xl transition-all duration-300 mb-8">Cotizar a Medida</a>
                 <div class="space-y-4 flex-1">
                     <div class="flex items-start gap-3"><i class="fas fa-check text-sky-400 mt-1 text-sm"></i><span class="text-slate-300 text-sm">Diseño UI/UX a medida</span></div>
