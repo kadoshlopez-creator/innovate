@@ -41,15 +41,27 @@ $icons   = [
             <?= csrf_field() ?>
 
             <div class="grid sm:grid-cols-2 gap-6">
-                <!-- Title -->
+                <!-- Title ES -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Título <span class="text-red-500">*</span></label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Título (ES) <span class="text-red-500">*</span></label>
                     <input type="text" name="title" required
                            x-model="title" @input="updateSlug()"
                            class="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all"
                            placeholder="Ej. Desarrollo de Software">
                 </div>
 
+                <!-- Title EN -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Título (EN)</label>
+                    <input type="text" name="title_en"
+                           value="<?= $v('title_en') ?>"
+                           class="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all"
+                           placeholder="Ej. Software Development">
+                </div>
+
+            </div>
+
+            <div class="grid sm:grid-cols-1 gap-6">
                 <!-- Slug -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1.5">Slug (URL)</label>
@@ -57,7 +69,7 @@ $icons   = [
                            x-model="slug" @focus="autoSlug = false"
                            class="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg px-3.5 py-2.5 text-sm font-mono outline-none transition-all"
                            placeholder="desarrollo-de-software">
-                    <p class="text-xs text-gray-400 mt-1">Se genera automáticamente</p>
+                    <p class="text-xs text-gray-400 mt-1">Se genera automáticamente desde el título en español</p>
                 </div>
             </div>
 
@@ -84,20 +96,38 @@ $icons   = [
                 </script>
             </div>
 
-            <!-- Short description -->
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1.5">Descripción corta</label>
-                <textarea name="short_description" rows="2"
-                          class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all resize-none"
-                          placeholder="Resumen breve que aparece en las tarjetas (máx. 150 caracteres)"><?= $v('short_description') ?></textarea>
+            <div class="grid sm:grid-cols-2 gap-6">
+                <!-- Short description ES -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Descripción corta (ES)</label>
+                    <textarea name="short_description" rows="3"
+                              class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all resize-none"
+                              placeholder="Resumen breve en español"><?= $v('short_description') ?></textarea>
+                </div>
+                <!-- Short description EN -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Descripción corta (EN)</label>
+                    <textarea name="short_description_en" rows="3"
+                              class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all resize-none"
+                              placeholder="Short summary in English"><?= $v('short_description_en') ?></textarea>
+                </div>
             </div>
 
-            <!-- Full description -->
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1.5">Descripción completa <span class="text-gray-400">(HTML permitido)</span></label>
-                <textarea name="description" rows="8"
-                          class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all font-mono resize-y"
-                          placeholder="<p>Descripción detallada del servicio...</p>"><?= $v('description') ?></textarea>
+            <div class="grid sm:grid-cols-2 gap-6">
+                <!-- Full description ES -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Descripción completa (ES)</label>
+                    <textarea name="description" rows="10"
+                              class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all font-mono resize-y"
+                              placeholder="Contenido en español..."><?= $v('description') ?></textarea>
+                </div>
+                <!-- Full description EN -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Descripción completa (EN)</label>
+                    <textarea name="description_en" rows="10"
+                              class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all font-mono resize-y"
+                              placeholder="English content..."><?= $v('description_en') ?></textarea>
+                </div>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-6">

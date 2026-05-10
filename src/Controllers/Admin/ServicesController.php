@@ -108,10 +108,13 @@ class ServicesController extends Controller
     {
         return [
             'title'             => trim($this->request->post('title', '')),
+            'title_en'          => trim($this->request->post('title_en', '')),
             'slug'              => trim($this->request->post('slug', '')),
             'icon'              => trim($this->request->post('icon', 'fas fa-cogs')),
             'short_description' => trim($this->request->post('short_description', '')),
+            'short_description_en' => trim($this->request->post('short_description_en', '')),
             'description'       => trim($this->request->post('description', '')),
+            'description_en'    => trim($this->request->post('description_en', '')),
             'active'            => (int) $this->request->post('active', 1),
             'order_index'       => (int) $this->request->post('order_index', 0),
         ];
