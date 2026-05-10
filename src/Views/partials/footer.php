@@ -21,14 +21,8 @@ $year     = date('Y');
 
             <!-- Brand -->
             <div class="lg:col-span-2">
-                <a href="/" class="flex items-center gap-3 mb-5 group w-fit">
-                    <div class="relative w-9 h-9">
-                        <div class="absolute inset-0 bg-gradient-to-br from-sky-500 to-violet-600 rounded-xl blur-sm opacity-60"></div>
-                        <div class="relative w-9 h-9 bg-gradient-to-br from-sky-500 to-violet-600 rounded-xl flex items-center justify-center">
-                            <span class="text-white font-black text-base">I</span>
-                        </div>
-                    </div>
-                    <span class="text-white font-bold text-xl"><?= e($siteName) ?></span>
+                <a href="/" class="flex items-center mb-6 group w-fit">
+                    <img src="/assets/images/logo-dark.png" alt="<?= e($siteName) ?>" class="h-16 w-auto transition-transform group-hover:scale-105">
                 </a>
                 <p class="text-slate-500 text-sm leading-relaxed max-w-xs mb-7"><?= e($siteDesc) ?></p>
 
