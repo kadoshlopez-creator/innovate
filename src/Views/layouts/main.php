@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovate | Arquitectura robusta. Negocios imparables.</title>
     <meta name="description" content="<?= e(\App\Models\Setting::get('site_description', '')) ?>">
-    <link rel="icon" type="image/png" href="/assets/images/logo-dark.png?v=1.1">
-    <link rel="shortcut icon" type="image/png" href="/assets/images/logo-dark.png?v=1.1">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png?v=1.1">
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png?v=1.1">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
