@@ -225,7 +225,7 @@
             <!-- Project 1: PAMEL -->
             <div class="group cursor-pointer">
                 <div class="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl mb-6 relative aspect-video bg-[#0a0a0a]">
-                    <img src="/assets/images/project-pamel.png?v=1.1" alt="PAMEL" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
+                    <img src="/assets/images/project-pamel.png?v=1.6" alt="PAMEL" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 </div>
                 <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors"><?= __('home.portfolio.p1.title') ?></h3>
@@ -235,7 +235,7 @@
             <!-- Project 2: RUCMA -->
             <div class="group cursor-pointer">
                 <div class="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl mb-6 relative aspect-video bg-[#0a0a0a]">
-                    <img src="/assets/images/project-rucma.png?v=1.1" alt="RUCMA" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
+                    <img src="/assets/images/project-rucma.png?v=1.6" alt="RUCMA" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 </div>
                 <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors"><?= __('home.portfolio.p2.title') ?></h3>
@@ -245,7 +245,7 @@
             <!-- Project 3: SPP (Pediatría) -->
             <div class="group cursor-pointer">
                 <div class="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl mb-6 relative aspect-video bg-[#0a0a0a]">
-                    <img src="/assets/images/project-pediatria.png?v=1.1" alt="SPP" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
+                    <img src="/assets/images/project-pediatria.png?v=1.6" alt="SPP" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 </div>
                 <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors"><?= __('home.portfolio.p3.title') ?></h3>
@@ -255,7 +255,7 @@
             <!-- Project 4: CHINABOX507 -->
             <div class="group cursor-pointer">
                 <div class="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl mb-6 relative aspect-video bg-[#0a0a0a]">
-                    <img src="/assets/images/project-chinabox507.png?v=1.5" alt="CHINABOX507" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
+                    <img src="/assets/images/project-chinabox507.png?v=1.6" alt="CHINABOX507" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 </div>
                 <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors"><?= __('home.portfolio.p4.title') ?></h3>
