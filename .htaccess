@@ -12,24 +12,30 @@ Options -Indexes
     Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
     # Basic XSS protection for older browsers
     Header always set X-XSS-Protection "1; mode=block"
+    # Content Security Policy (CSP)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
 </IfModule>
 
-# ── Force HTTPS (enable in production, comment out for local dev) ─────────────
-# <IfModule mod_rewrite.c>
-#     RewriteCond %{HTTPS} off
-#     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-# </IfModule>
+# ── Force HTTPS ───────────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
 
 # ── Front Controller ─────────────────────────────────────────────────────────
 <IfModule mod_rewrite.c>
-    RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.php [QSA,L]
 </IfModule>
 
-# ── Protect sensitive files ───────────────────────────────────────────────────
-<FilesMatch "^(\.env|composer\.(json|lock)|\.htaccess)$">
+# ── Protect sensitive files & directories ────────────────────────────────────
+<FilesMatch "^(\.env|composer\.(json|lock)|\.htaccess|setup\.php|CLAUDE\.md)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
+
+# Block access to core application folders
+RewriteRule ^(config|database|src|vendor|languages|scratch)/.*$ - [F,L]
+

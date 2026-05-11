@@ -7,8 +7,28 @@ class Session
     public static function start(): void
     {
         if (session_status() === PHP_SESSION_NONE) {
+            // ── Session Security Hardening ──────────────────────────────────
+            $isSecure = ($_ENV['APP_ENV'] ?? 'local') === 'production';
+            
+            session_set_cookie_params([
+                'lifetime' => 0, // session cookie
+                'path'     => '/',
+                'domain'   => '',
+                'secure'   => $isSecure,
+                'httponly' => true,
+                'samesite' => 'Lax'
+            ]);
+
             session_name('innovate_session');
             session_start();
+        }
+    }
+
+    /** Regenerate session ID to prevent session fixation */
+    public static function regenerate(): void
+    {
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            session_regenerate_id(true);
         }
     }
 

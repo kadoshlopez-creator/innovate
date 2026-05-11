@@ -69,6 +69,7 @@ class AuthController extends Controller
 
         // ── Success: clear rate limit and start session ───────────────────────
         RateLimiter::clear($key);
+        Session::regenerate();
         Auth::login($user);
         $this->redirect('/admin/dashboard');
     }
