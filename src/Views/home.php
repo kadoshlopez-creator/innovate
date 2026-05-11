@@ -43,9 +43,11 @@
             <div x-data="{ 
                     current: 0, 
                     slides: [
-                        { img: '/assets/images/project-pamel.png?v=1.1', label: '<?= __('home.hero.s1.label') ?>', title: '<?= __('home.hero.s1.title') ?>' },
-                        { img: '/assets/images/project-pediatria.png?v=1.1', label: '<?= __('home.hero.s2.label') ?>', title: '<?= __('home.hero.s2.title') ?>' },
-                        { img: '/assets/images/project-rucma.png?v=1.1', label: '<?= __('home.hero.s3.label') ?>', title: '<?= __('home.hero.s3.title') ?>' }
+                        { img: '/assets/images/project-pamel.png?v=1.6', color: '#0f172a', label: '<?= __('home.hero.s1.label') ?>', title: '<?= __('home.hero.s1.title') ?>', desc: '<?= __('home.hero.s1.desc') ?>' },
+                        { img: '/assets/images/project-pamel.png?v=1.6', color: '#0c4a6e', label: '<?= __('home.hero.s2.label') ?>', title: '<?= __('home.hero.s2.title') ?>', desc: '<?= __('home.hero.s2.desc') ?>' },
+                        { img: '/assets/images/project-rucma.png?v=1.6', color: '#1e293b', label: '<?= __('home.hero.s3.label') ?>', title: '<?= __('home.hero.s3.title') ?>', desc: '<?= __('home.hero.s3.desc') ?>' },
+                        { img: '/assets/images/project-pediatria.png?v=1.6', color: '#0369a1', label: '<?= __('home.hero.s4.label') ?>', title: '<?= __('home.hero.s4.title') ?>', desc: '<?= __('home.hero.s4.desc') ?>' },
+                        { img: '/assets/images/project-chinabox507.png?v=1.6', color: '#7c2d12', label: '<?= __('home.hero.s5.label') ?>', title: '<?= __('home.hero.s5.title') ?>', desc: '<?= __('home.hero.s5.desc') ?>' }
                     ],
                     next() { this.current = (this.current + 1) % this.slides.length },
                     prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length }
@@ -65,39 +67,46 @@
                     </div>
 
                     <!-- Browser content placeholder -->
-                    <div class="h-80 sm:h-[450px] relative flex items-center justify-center overflow-hidden group">
+                    <div class="h-80 sm:h-[450px] relative flex items-start justify-center overflow-hidden group transition-colors duration-700"
+                         :style="{ backgroundColor: slides[current].color }">
                         <!-- Slides -->
                         <template x-for="(slide, index) in slides" :key="index">
                             <div x-show="current === index"
                                  x-transition:enter="transition ease-out duration-1000"
-                                 x-transition:enter-start="opacity-0 scale-110 blur-sm"
+                                 x-transition:enter-start="opacity-0 scale-105 blur-sm"
                                  x-transition:enter-end="opacity-100 scale-100 blur-0"
                                  x-transition:leave="transition ease-in duration-1000"
                                  x-transition:leave-start="opacity-100 scale-100"
                                  x-transition:leave-end="opacity-0 scale-95 blur-sm"
-                                 class="absolute inset-0">
-                                <img :src="slide.img" class="w-full h-full object-cover">
+                                 class="absolute inset-0 px-4 pt-8">
+                                
+                                <img :src="slide.img" class="w-full h-4/5 object-contain">
+                                
+                                <!-- Text Overlay for each slide -->
+                                <div class="absolute inset-x-0 bottom-10 flex flex-col items-center justify-center text-center px-6 pointer-events-none">
+                                    <span x-transition:enter="transition delay-300 duration-700"
+                                          x-transition:enter-start="opacity-0 translate-y-4"
+                                          x-transition:enter-end="opacity-100 translate-y-0"
+                                          x-text="slide.label" 
+                                          class="px-4 py-1.5 text-[10px] font-black bg-orange-600 text-white rounded-full uppercase tracking-[0.25em] mb-4 inline-block shadow-xl">
+                                    </span>
+                                    <h3 x-transition:enter="transition delay-500 duration-700"
+                                        x-transition:enter-start="opacity-0 translate-y-4"
+                                        x-transition:enter-end="opacity-100 translate-y-0"
+                                        x-text="slide.title" 
+                                        class="text-3xl sm:text-4xl font-black text-white leading-none tracking-tight mb-2 drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)]">
+                                    </h3>
+                                    <p x-transition:enter="transition delay-700 duration-700"
+                                       x-transition:enter-start="opacity-0 translate-y-4"
+                                       x-transition:enter-end="opacity-100 translate-y-0"
+                                       x-text="slide.desc"
+                                       class="text-slate-200 text-sm font-semibold drop-shadow-lg max-w-md">
+                                    </p>
+                                </div>
                             </div>
                         </template>
                         
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent"></div>
-                        
-                        <div class="absolute inset-x-0 bottom-12 flex flex-col items-center justify-center text-center px-6 pointer-events-none">
-                            <span x-show="current === index" 
-                                  x-transition:enter="transition delay-300 duration-700"
-                                  x-transition:enter-start="opacity-0 translate-y-4"
-                                  x-transition:enter-end="opacity-100 translate-y-0"
-                                  x-text="slides[current].label" 
-                                  class="px-4 py-1.5 text-[10px] font-black bg-orange-600 text-white rounded-full uppercase tracking-[0.25em] mb-6 inline-block shadow-xl">
-                            </span>
-                            <h3 x-show="current === index"
-                                x-transition:enter="transition delay-500 duration-700"
-                                x-transition:enter-start="opacity-0 translate-y-4"
-                                x-transition:enter-end="opacity-100 translate-y-0"
-                                x-text="slides[current].title" 
-                                class="text-3xl sm:text-5xl font-black text-white leading-none tracking-tight drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)]">
-                            </h3>
-                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
 
                         <!-- Slider arrows -->
                         <button @click="prev()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/20 hover:bg-orange-600/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all border border-white/10 group/btn">
@@ -212,55 +221,45 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Project 1: PAMEL Capacitación -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            <!-- Project 1: PAMEL -->
             <div class="group cursor-pointer">
                 <div class="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl mb-6 relative aspect-video bg-[#0a0a0a]">
                     <img src="/assets/images/project-pamel.png?v=1.1" alt="PAMEL" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors">PAMEL</h3>
-                <p class="text-slate-500 text-sm font-medium uppercase tracking-wider">Centro de Capacitación Marítima</p>
+                <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors"><?= __('home.portfolio.p1.title') ?></h3>
+                <p class="text-slate-500 text-sm font-medium uppercase tracking-wider"><?= __('home.portfolio.p1.desc') ?></p>
             </div>
 
-            <!-- Project 2: PAMEL E-Learning -->
-            <div class="group cursor-pointer">
-                <div class="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl mb-6 relative aspect-video bg-[#0a0a0a]">
-                    <img src="/assets/images/project-pamel.png?v=1.1" alt="PAMEL E-Learning" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60"></div>
-                </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors">PAMEL</h3>
-                <p class="text-slate-500 text-sm font-medium uppercase tracking-wider">Plataforma E-Learning</p>
-            </div>
-
-            <!-- Project 3: RUCMA -->
+            <!-- Project 2: RUCMA -->
             <div class="group cursor-pointer">
                 <div class="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl mb-6 relative aspect-video bg-[#0a0a0a]">
                     <img src="/assets/images/project-rucma.png?v=1.1" alt="RUCMA" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors">RUCMA</h3>
-                <p class="text-slate-500 text-sm font-medium uppercase tracking-wider">Sistema de Certificación Digital</p>
+                <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors"><?= __('home.portfolio.p2.title') ?></h3>
+                <p class="text-slate-500 text-sm font-medium uppercase tracking-wider"><?= __('home.portfolio.p2.desc') ?></p>
             </div>
 
-            <!-- Project 4: SPP -->
+            <!-- Project 3: SPP (Pediatría) -->
             <div class="group cursor-pointer">
                 <div class="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl mb-6 relative aspect-video bg-[#0a0a0a]">
                     <img src="/assets/images/project-pediatria.png?v=1.1" alt="SPP" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors">SPP</h3>
-                <p class="text-slate-500 text-sm font-medium uppercase tracking-wider">Sociedad Panameña de Pediatría</p>
+                <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors"><?= __('home.portfolio.p3.title') ?></h3>
+                <p class="text-slate-500 text-sm font-medium uppercase tracking-wider"><?= __('home.portfolio.p3.desc') ?></p>
             </div>
 
-            <!-- Project 5: CHINABOX507 -->
+            <!-- Project 4: CHINABOX507 -->
             <div class="group cursor-pointer">
                 <div class="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl mb-6 relative aspect-video bg-[#0a0a0a]">
                     <img src="/assets/images/project-chinabox507.png?v=1.5" alt="CHINABOX507" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors">CHINABOX507</h3>
-                <p class="text-slate-500 text-sm font-medium uppercase tracking-wider">Manejo de carga y paquetería</p>
+                <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors"><?= __('home.portfolio.p4.title') ?></h3>
+                <p class="text-slate-500 text-sm font-medium uppercase tracking-wider"><?= __('home.portfolio.p4.desc') ?></p>
             </div>
         </div>
     </div>
