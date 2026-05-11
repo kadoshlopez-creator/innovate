@@ -1,41 +1,22 @@
 Options -Indexes
 
-# ── Security Headers ──────────────────────────────────────────────────────────
-<IfModule mod_headers.c>
-    # Prevent clickjacking
-    Header always set X-Frame-Options "SAMEORIGIN"
-    # Prevent MIME-type sniffing
-    Header always set X-Content-Type-Options "nosniff"
-    # Control referrer information
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-    # Restrict browser features
-    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-    # Basic XSS protection for older browsers
-    Header always set X-XSS-Protection "1; mode=block"
-    # Content Security Policy (CSP)
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
-</IfModule>
-
-# ── Force HTTPS ───────────────────────────────────────────────────────────────
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteCond %{HTTPS} off
-    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # ── Redirect everything to /public ────────────────────────────────────────
+    # If the request is not for the public folder already
+    RewriteCond %{REQUEST_URI} !^/public/
+    
+    # Rewrite the request to the public folder
+    RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
 
-# ── Front Controller ─────────────────────────────────────────────────────────
-<IfModule mod_rewrite.c>
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^ index.php [QSA,L]
-</IfModule>
-
-# ── Protect sensitive files & directories ────────────────────────────────────
-<FilesMatch "^(\.env|composer\.(json|lock)|\.htaccess|setup\.php|CLAUDE\.md)$">
+# ── Fallback Security ─────────────────────────────────────────────────────────
+# Block direct access to core files in case mod_rewrite fails
+<FilesMatch "^(\.env|composer\.(json|lock)|\.htaccess|CLAUDE\.md)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
 # Block access to core application folders
 RewriteRule ^(config|database|src|vendor|languages|scratch)/.*$ - [F,L]
-

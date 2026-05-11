@@ -18,10 +18,6 @@ class Service extends Model
                 IFNULL(NULLIF(short_description_{$lang}, ''), short_description) as short_description,
                 IFNULL(NULLIF(description_{$lang}, ''), description) as description
                 FROM services WHERE active = 1 ORDER BY order_index ASC, id ASC";
-        
-        if ($lang === 'es') {
-            $sql = "SELECT * FROM services WHERE active = 1 ORDER BY order_index ASC, id ASC";
-        }
 
         $stmt = static::db()->query($sql);
         return $stmt->fetchAll();
@@ -48,15 +44,18 @@ class Service extends Model
     public static function create(array $data): int
     {
         $stmt = static::db()->prepare(
-            "INSERT INTO services (title, slug, icon, short_description, description, active, order_index)
-             VALUES (?, ?, ?, ?, ?, ?, ?)"
+            "INSERT INTO services (title, title_en, slug, icon, short_description, short_description_en, description, description_en, active, order_index)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
         $stmt->execute([
             $data['title'],
+            $data['title_en']          ?? '',
             $data['slug'],
             $data['icon']              ?? 'fas fa-cogs',
             $data['short_description'] ?? '',
+            $data['short_description_en'] ?? '',
             $data['description']       ?? '',
+            $data['description_en']    ?? '',
             isset($data['active']) ? (int) $data['active'] : 1,
             (int) ($data['order_index'] ?? 0),
         ]);
@@ -67,15 +66,18 @@ class Service extends Model
     {
         $stmt = static::db()->prepare(
             "UPDATE services
-             SET title=?, slug=?, icon=?, short_description=?, description=?, active=?, order_index=?, updated_at=NOW()
+             SET title=?, title_en=?, slug=?, icon=?, short_description=?, short_description_en=?, description=?, description_en=?, active=?, order_index=?, updated_at=NOW()
              WHERE id=?"
         );
         return $stmt->execute([
             $data['title'],
+            $data['title_en']          ?? '',
             $data['slug'],
             $data['icon']              ?? 'fas fa-cogs',
             $data['short_description'] ?? '',
+            $data['short_description_en'] ?? '',
             $data['description']       ?? '',
+            $data['description_en']    ?? '',
             isset($data['active']) ? (int) $data['active'] : 1,
             (int) ($data['order_index'] ?? 0),
             $id,

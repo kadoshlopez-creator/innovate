@@ -1,9 +1,43 @@
+# ── Innovate CMS Security GitIgnore ──────────────────────────────────────────
+
+# Core Security: Never commit environment variables
+.env
+.env.local
+.env.testing
+.env.production
+
+# Installation State: Prevents accidental re-installation triggers
+.installed
+
+# Dependencies: Should be managed via composer install
 /vendor/
-/.env
-/node_modules/
-/public/storage/
+
+# Temporary & Scratch Files
+/scratch/
+CLAUDE.md
 *.log
-.idea/
-.vscode/
-.DS_Store
 *.bak
+*.tmp
+*.swp
+
+# IDE & Editor specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Compiled assets or build folders (if any are added later)
+/node_modules/
+/dist/
+/public/storage/

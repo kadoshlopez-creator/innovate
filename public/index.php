@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-define('ROOT', __DIR__);
+define('ROOT', dirname(__DIR__));
 define('START_TIME', microtime(true));
 
 // Error reporting (overridden by .env)
