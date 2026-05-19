@@ -107,16 +107,19 @@ class ServicesController extends Controller
     private function extractData(): array
     {
         return [
-            'title'             => trim($this->request->post('title', '')),
-            'title_en'          => trim($this->request->post('title_en', '')),
-            'slug'              => trim($this->request->post('slug', '')),
-            'icon'              => trim($this->request->post('icon', 'fas fa-cogs')),
-            'short_description' => trim($this->request->post('short_description', '')),
+            'title'                => trim($this->request->post('title', '')),
+            'title_en'             => trim($this->request->post('title_en', '')),
+            'title_zh'             => trim($this->request->post('title_zh', '')),
+            'slug'                 => trim($this->request->post('slug', '')),
+            'icon'                 => trim($this->request->post('icon', 'fas fa-cogs')),
+            'short_description'    => trim($this->request->post('short_description', '')),
             'short_description_en' => trim($this->request->post('short_description_en', '')),
-            'description'       => trim($this->request->post('description', '')),
-            'description_en'    => trim($this->request->post('description_en', '')),
-            'active'            => (int) $this->request->post('active', 1),
-            'order_index'       => (int) $this->request->post('order_index', 0),
+            'short_description_zh' => trim($this->request->post('short_description_zh', '')),
+            'description'          => trim($this->request->post('description', '')),
+            'description_en'       => trim($this->request->post('description_en', '')),
+            'description_zh'       => trim($this->request->post('description_zh', '')),
+            'active'               => (int) $this->request->post('active', 1),
+            'order_index'          => (int) $this->request->post('order_index', 0),
         ];
     }
 }

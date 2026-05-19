@@ -6,7 +6,7 @@ class LangController extends Controller
 {
     public function switch(string $code): void
     {
-        if (in_array($code, ['es', 'en'])) {
+        if (in_array($code, ['es', 'en', 'zh'])) {
             $_SESSION['lang'] = $code;
         }
         

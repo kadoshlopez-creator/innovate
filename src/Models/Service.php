@@ -10,10 +10,13 @@ class Service extends Model
         'id', 'title', 'slug', 'active', 'order_index', 'created_at', 'updated_at',
     ];
 
+    /** Languages that have dedicated translated columns in the DB (e.g. title_en) */
+    private const DB_LANGS = ['en', 'zh'];
+
     public static function active(): array
     {
         $lang = current_lang();
-        if ($lang === 'es') {
+        if ($lang === 'es' || !in_array($lang, self::DB_LANGS)) {
             $sql = "SELECT * FROM services WHERE active = 1 ORDER BY order_index ASC, id ASC";
         } else {
             $sql = "SELECT *, 
@@ -30,7 +33,7 @@ class Service extends Model
     public static function findBySlug(string $slug): ?array
     {
         $lang = current_lang();
-        if ($lang === 'es') {
+        if ($lang === 'es' || !in_array($lang, self::DB_LANGS)) {
             return static::findWhere('slug', $slug);
         }
 
@@ -48,18 +51,21 @@ class Service extends Model
     public static function create(array $data): int
     {
         $stmt = static::db()->prepare(
-            "INSERT INTO services (title, title_en, slug, icon, short_description, short_description_en, description, description_en, active, order_index)
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            "INSERT INTO services (title, title_en, title_zh, slug, icon, short_description, short_description_en, short_description_zh, description, description_en, description_zh, active, order_index)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
         $stmt->execute([
             $data['title'],
-            $data['title_en']          ?? '',
+            $data['title_en']             ?? '',
+            $data['title_zh']             ?? '',
             $data['slug'],
-            $data['icon']              ?? 'fas fa-cogs',
-            $data['short_description'] ?? '',
+            $data['icon']                 ?? 'fas fa-cogs',
+            $data['short_description']    ?? '',
             $data['short_description_en'] ?? '',
-            $data['description']       ?? '',
-            $data['description_en']    ?? '',
+            $data['short_description_zh'] ?? '',
+            $data['description']          ?? '',
+            $data['description_en']       ?? '',
+            $data['description_zh']       ?? '',
             isset($data['active']) ? (int) $data['active'] : 1,
             (int) ($data['order_index'] ?? 0),
         ]);
@@ -70,18 +76,21 @@ class Service extends Model
     {
         $stmt = static::db()->prepare(
             "UPDATE services
-             SET title=?, title_en=?, slug=?, icon=?, short_description=?, short_description_en=?, description=?, description_en=?, active=?, order_index=?, updated_at=NOW()
+             SET title=?, title_en=?, title_zh=?, slug=?, icon=?, short_description=?, short_description_en=?, short_description_zh=?, description=?, description_en=?, description_zh=?, active=?, order_index=?, updated_at=NOW()
              WHERE id=?"
         );
         return $stmt->execute([
             $data['title'],
-            $data['title_en']          ?? '',
+            $data['title_en']             ?? '',
+            $data['title_zh']             ?? '',
             $data['slug'],
-            $data['icon']              ?? 'fas fa-cogs',
-            $data['short_description'] ?? '',
+            $data['icon']                 ?? 'fas fa-cogs',
+            $data['short_description']    ?? '',
             $data['short_description_en'] ?? '',
-            $data['description']       ?? '',
-            $data['description_en']    ?? '',
+            $data['short_description_zh'] ?? '',
+            $data['description']          ?? '',
+            $data['description_en']       ?? '',
+            $data['description_zh']       ?? '',
             isset($data['active']) ? (int) $data['active'] : 1,
             (int) ($data['order_index'] ?? 0),
             $id,

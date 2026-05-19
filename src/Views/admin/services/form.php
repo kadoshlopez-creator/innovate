@@ -16,7 +16,7 @@ $icons   = [
     'fas fa-lock'        => 'Candado',
 ];
 ?>
-<div class="max-w-3xl">
+<div class="max-w-5xl">
     <div class="mb-6">
         <a href="/admin/servicios" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 transition-colors">
             <i class="fas fa-arrow-left"></i> Volver a Servicios
@@ -40,44 +40,53 @@ $icons   = [
         }">
             <?= csrf_field() ?>
 
-            <div class="grid sm:grid-cols-2 gap-6">
-                <!-- Title ES -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Título (ES) <span class="text-red-500">*</span></label>
-                    <input type="text" name="title" required
-                           x-model="title" @input="updateSlug()"
-                           class="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all"
-                           placeholder="Ej. Desarrollo de Software">
+            <!-- ── Títulos ES / EN / ZH ────────────────────────────────── -->
+            <div>
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Título</p>
+                <div class="grid sm:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            ES <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" name="title" required
+                               x-model="title" @input="updateSlug()"
+                               class="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all"
+                               placeholder="Ej. Desarrollo de Software">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">EN</label>
+                        <input type="text" name="title_en"
+                               value="<?= $v('title_en') ?>"
+                               class="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all"
+                               placeholder="Ej. Software Development">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            中文 <span class="text-red-400 text-xs">🇨🇳</span>
+                        </label>
+                        <input type="text" name="title_zh"
+                               value="<?= $v('title_zh') ?>"
+                               class="w-full border border-gray-300 focus:border-red-400 focus:ring-2 focus:ring-red-400/20 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all"
+                               placeholder="例：软件开发">
+                    </div>
                 </div>
-
-                <!-- Title EN -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Título (EN)</label>
-                    <input type="text" name="title_en"
-                           value="<?= $v('title_en') ?>"
-                           class="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all"
-                           placeholder="Ej. Software Development">
-                </div>
-
             </div>
 
-            <div class="grid sm:grid-cols-1 gap-6">
-                <!-- Slug -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Slug (URL)</label>
-                    <input type="text" name="slug"
-                           x-model="slug" @focus="autoSlug = false"
-                           class="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg px-3.5 py-2.5 text-sm font-mono outline-none transition-all"
-                           placeholder="desarrollo-de-software">
-                    <p class="text-xs text-gray-400 mt-1">Se genera automáticamente desde el título en español</p>
-                </div>
+            <!-- ── Slug ───────────────────────────────────────────────── -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1.5">Slug (URL)</label>
+                <input type="text" name="slug"
+                       x-model="slug" @focus="autoSlug = false"
+                       class="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg px-3.5 py-2.5 text-sm font-mono outline-none transition-all"
+                       placeholder="desarrollo-de-software">
+                <p class="text-xs text-gray-400 mt-1">Se genera automáticamente desde el título en español</p>
             </div>
 
-            <!-- Icon -->
+            <!-- ── Icono ───────────────────────────────────────────────── -->
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1.5">Icono (Font Awesome)</label>
                 <div class="flex gap-3 items-center">
-                    <select name="icon" class="flex-1 border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all" x-data x-ref="iconSel">
+                    <select name="icon" class="flex-1 border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all">
                         <?php foreach ($icons as $cls => $lbl): ?>
                         <option value="<?= e($cls) ?>" <?= $v('icon', 'fas fa-cogs') === $cls ? 'selected' : '' ?>>
                             <?= e($lbl) ?> (<?= e($cls) ?>)
@@ -90,48 +99,67 @@ $icons   = [
                 </div>
                 <script>
                 document.querySelector('[name="icon"]').addEventListener('change', function() {
-                    const preview = document.getElementById('iconPreview');
-                    preview.className = this.value + ' text-lg';
+                    document.getElementById('iconPreview').className = this.value + ' text-lg';
                 });
                 </script>
             </div>
 
-            <div class="grid sm:grid-cols-2 gap-6">
-                <!-- Short description ES -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Descripción corta (ES)</label>
-                    <textarea name="short_description" rows="3"
-                              class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all resize-none"
-                              placeholder="Resumen breve en español"><?= $v('short_description') ?></textarea>
-                </div>
-                <!-- Short description EN -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Descripción corta (EN)</label>
-                    <textarea name="short_description_en" rows="3"
-                              class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all resize-none"
-                              placeholder="Short summary in English"><?= $v('short_description_en') ?></textarea>
-                </div>
-            </div>
-
-            <div class="grid sm:grid-cols-2 gap-6">
-                <!-- Full description ES -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Descripción completa (ES)</label>
-                    <textarea name="description" rows="10"
-                              class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all font-mono resize-y"
-                              placeholder="Contenido en español..."><?= $v('description') ?></textarea>
-                </div>
-                <!-- Full description EN -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Descripción completa (EN)</label>
-                    <textarea name="description_en" rows="10"
-                              class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all font-mono resize-y"
-                              placeholder="English content..."><?= $v('description_en') ?></textarea>
+            <!-- ── Descripción corta ES / EN / ZH ────────────────────── -->
+            <div>
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Descripción corta</p>
+                <div class="grid sm:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">ES</label>
+                        <textarea name="short_description" rows="4"
+                                  class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all resize-none"
+                                  placeholder="Resumen breve en español"><?= $v('short_description') ?></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">EN</label>
+                        <textarea name="short_description_en" rows="4"
+                                  class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all resize-none"
+                                  placeholder="Short summary in English"><?= $v('short_description_en') ?></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            中文 <span class="text-red-400 text-xs">🇨🇳</span>
+                        </label>
+                        <textarea name="short_description_zh" rows="4"
+                                  class="w-full border border-gray-300 focus:border-red-400 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all resize-none"
+                                  placeholder="简短摘要（中文）"><?= $v('short_description_zh') ?></textarea>
+                    </div>
                 </div>
             </div>
 
+            <!-- ── Descripción completa ES / EN / ZH ─────────────────── -->
+            <div>
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Descripción completa</p>
+                <div class="grid sm:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">ES</label>
+                        <textarea name="description" rows="12"
+                                  class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all font-mono resize-y"
+                                  placeholder="Contenido en español..."><?= $v('description') ?></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">EN</label>
+                        <textarea name="description_en" rows="12"
+                                  class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all font-mono resize-y"
+                                  placeholder="English content..."><?= $v('description_en') ?></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                            中文 <span class="text-red-400 text-xs">🇨🇳</span>
+                        </label>
+                        <textarea name="description_zh" rows="12"
+                                  class="w-full border border-gray-300 focus:border-red-400 rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all font-mono resize-y"
+                                  placeholder="中文内容..."><?= $v('description_zh') ?></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Estado y Orden ──────────────────────────────────────── -->
             <div class="grid sm:grid-cols-2 gap-6">
-                <!-- Status -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1.5">Estado</label>
                     <select name="active" class="w-full border border-gray-300 focus:border-blue-500 rounded-lg px-3.5 py-2.5 text-sm outline-none">
@@ -139,8 +167,6 @@ $icons   = [
                         <option value="0" <?= ($service['active'] ?? 1) == 0 ? 'selected' : '' ?>>Inactivo</option>
                     </select>
                 </div>
-
-                <!-- Order -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1.5">Orden de aparición</label>
                     <input type="number" name="order_index" min="0"
@@ -150,7 +176,7 @@ $icons   = [
                 </div>
             </div>
 
-            <!-- Actions -->
+            <!-- ── Acciones ────────────────────────────────────────────── -->
             <div class="flex items-center gap-3 pt-2 border-t border-gray-100">
                 <button type="submit"
                         class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-colors">

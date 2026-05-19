@@ -48,27 +48,45 @@ $navLinks   = [
                 </a>
 
                 <!-- Language Switcher -->
+                <?php $lang = current_lang(); ?>
                 <div class="flex items-center p-1.5 bg-white/[0.04] border border-white/[0.08] rounded-2xl backdrop-blur-md">
-                    <a href="/lang/es" 
+
+                    <!-- ES: naranja/rojo (España) -->
+                    <a href="/lang/es"
                        class="relative px-4 py-2 rounded-xl text-xs font-black tracking-wide transition-all duration-300
-                              <?= current_lang() === 'es' 
-                                  ? 'bg-gradient-to-br from-sky-500 to-blue-600 text-white shadow-lg shadow-sky-500/25 scale-105' 
-                                  : 'text-slate-500 hover:text-slate-300' ?>">
+                              <?= $lang === 'es'
+                                  ? 'bg-gradient-to-br from-orange-500 to-red-600 text-white shadow-lg shadow-orange-500/30 scale-105'
+                                  : 'text-slate-500 hover:text-orange-400' ?>">
                         ES
-                        <?php if (current_lang() === 'es'): ?>
-                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-orange-500 rounded-full shadow-[0_0_8px_rgba(249,115,22,0.8)]"></span>
+                        <?php if ($lang === 'es'): ?>
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-orange-400 rounded-full shadow-[0_0_8px_rgba(251,146,60,0.9)]"></span>
                         <?php endif; ?>
                     </a>
-                    <a href="/lang/en" 
+
+                    <!-- EN: azul/índigo (inglés) -->
+                    <a href="/lang/en"
                        class="relative px-4 py-2 rounded-xl text-xs font-black tracking-wide transition-all duration-300
-                              <?= current_lang() === 'en' 
-                                  ? 'bg-gradient-to-br from-sky-500 to-blue-600 text-white shadow-lg shadow-sky-500/25 scale-105' 
-                                  : 'text-slate-500 hover:text-slate-300' ?>">
+                              <?= $lang === 'en'
+                                  ? 'bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/30 scale-105'
+                                  : 'text-slate-500 hover:text-sky-400' ?>">
                         EN
-                        <?php if (current_lang() === 'en'): ?>
-                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-orange-500 rounded-full shadow-[0_0_8px_rgba(249,115,22,0.8)]"></span>
+                        <?php if ($lang === 'en'): ?>
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-sky-400 rounded-full shadow-[0_0_8px_rgba(56,189,248,0.9)]"></span>
                         <?php endif; ?>
                     </a>
+
+                    <!-- 中文: rojo/dorado (China) -->
+                    <a href="/lang/zh"
+                       class="relative px-4 py-2 rounded-xl text-xs font-black tracking-wide transition-all duration-300
+                              <?= $lang === 'zh'
+                                  ? 'bg-gradient-to-br from-red-600 to-yellow-500 text-white shadow-lg shadow-red-600/30 scale-105'
+                                  : 'text-slate-500 hover:text-red-400' ?>">
+                        中文
+                        <?php if ($lang === 'zh'): ?>
+                        <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-yellow-400 rounded-full shadow-[0_0_8px_rgba(250,204,21,0.9)]"></span>
+                        <?php endif; ?>
+                    </a>
+
                 </div>
 
                 <button @click="open = !open"

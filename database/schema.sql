@@ -9,16 +9,22 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `services` (
-    `id`                INT AUTO_INCREMENT PRIMARY KEY,
-    `title`             VARCHAR(200)  NOT NULL,
-    `slug`              VARCHAR(200)  NOT NULL UNIQUE,
-    `icon`              VARCHAR(100)  NOT NULL DEFAULT 'fas fa-cogs',
-    `short_description` TEXT,
-    `description`       LONGTEXT,
-    `active`            TINYINT(1)    NOT NULL DEFAULT 1,
-    `order_index`       INT           NOT NULL DEFAULT 0,
-    `created_at`        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    `updated_at`        TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    `id`                    INT AUTO_INCREMENT PRIMARY KEY,
+    `title`                 VARCHAR(200)  NOT NULL,
+    `title_en`              VARCHAR(200)  NULL,
+    `title_zh`              VARCHAR(200)  NULL,
+    `slug`                  VARCHAR(200)  NOT NULL UNIQUE,
+    `icon`                  VARCHAR(100)  NOT NULL DEFAULT 'fas fa-cogs',
+    `short_description`     TEXT,
+    `short_description_en`  TEXT,
+    `short_description_zh`  TEXT,
+    `description`           LONGTEXT,
+    `description_en`        LONGTEXT,
+    `description_zh`        LONGTEXT,
+    `active`                TINYINT(1)    NOT NULL DEFAULT 1,
+    `order_index`           INT           NOT NULL DEFAULT 0,
+    `created_at`            TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at`            TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `contacts` (
