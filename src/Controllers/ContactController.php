@@ -16,7 +16,7 @@ class ContactController extends Controller
     public function index(): void
     {
         $this->view('contact', [
-            'title'    => 'Contacto',
+            'title'    => __('nav.contact', 'Contacto'),
             'services' => Service::active(),
         ]);
     }
@@ -31,7 +31,7 @@ class ContactController extends Controller
         // ── Rate limit ────────────────────────────────────────────────────────
         if (RateLimiter::tooManyAttempts($key, self::MAX_ATTEMPTS, self::DECAY_SECONDS)) {
             $wait = RateLimiter::availableIn($key, self::DECAY_SECONDS);
-            Session::flash('error', "Has enviado demasiados mensajes. Intenta de nuevo en {$wait} segundos.");
+            Session::flash('error', __('contact.error.rate_limit', 'Has enviado demasiados mensajes. Intenta de nuevo en :seconds segundos.', ['seconds' => $wait]));
             $this->redirect('/contacto');
         }
 
@@ -48,33 +48,33 @@ class ContactController extends Controller
         $errors = [];
 
         if (!$name) {
-            $errors[] = 'El nombre es requerido.';
+            $errors[] = __('contact.validation.name_required', 'El nombre es requerido.');
         } elseif (mb_strlen($name) > 100) {
-            $errors[] = 'El nombre no puede superar los 100 caracteres.';
+            $errors[] = __('contact.validation.name_max', 'El nombre no puede superar los 100 caracteres.');
         }
 
         if (!$email) {
-            $errors[] = 'El email es requerido.';
+            $errors[] = __('contact.validation.email_required', 'El email es requerido.');
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors[] = 'El email no tiene un formato válido.';
+            $errors[] = __('contact.validation.email_invalid', 'El email no tiene un formato válido.');
         } elseif (mb_strlen($email) > 150) {
-            $errors[] = 'El email no puede superar los 150 caracteres.';
+            $errors[] = __('contact.validation.email_max', 'El email no puede superar los 150 caracteres.');
         }
 
         if ($phone && mb_strlen($phone) > 30) {
-            $errors[] = 'El teléfono no puede superar los 30 caracteres.';
+            $errors[] = __('contact.validation.phone_max', 'El teléfono no puede superar los 30 caracteres.');
         }
 
         if ($company && mb_strlen($company) > 100) {
-            $errors[] = 'El nombre de empresa no puede superar los 100 caracteres.';
+            $errors[] = __('contact.validation.company_max', 'El nombre de empresa no puede superar los 100 caracteres.');
         }
 
         if (!$message) {
-            $errors[] = 'El mensaje es requerido.';
+            $errors[] = __('contact.validation.message_required', 'El mensaje es requerido.');
         } elseif (mb_strlen($message) < 10) {
-            $errors[] = 'El mensaje debe tener al menos 10 caracteres.';
+            $errors[] = __('contact.validation.message_min', 'El mensaje debe tener al menos 10 caracteres.');
         } elseif (mb_strlen($message) > 5000) {
-            $errors[] = 'El mensaje no puede superar los 5.000 caracteres.';
+            $errors[] = __('contact.validation.message_max', 'El mensaje no puede superar los 5.000 caracteres.');
         }
 
         if ($errors) {
@@ -88,7 +88,7 @@ class ContactController extends Controller
         RateLimiter::hit($key);
         Contact::create(compact('name', 'email', 'phone', 'company', 'service', 'message'));
 
-        Session::flash('success', '¡Mensaje enviado! Nos pondremos en contacto pronto.');
+        Session::flash('success', __('contact.success', '¡Mensaje enviado! Nos pondremos en contacto pronto.'));
         $this->redirect('/contacto');
     }
 }

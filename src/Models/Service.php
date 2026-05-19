@@ -13,11 +13,15 @@ class Service extends Model
     public static function active(): array
     {
         $lang = current_lang();
-        $sql = "SELECT *, 
-                IFNULL(NULLIF(title_{$lang}, ''), title) as title,
-                IFNULL(NULLIF(short_description_{$lang}, ''), short_description) as short_description,
-                IFNULL(NULLIF(description_{$lang}, ''), description) as description
-                FROM services WHERE active = 1 ORDER BY order_index ASC, id ASC";
+        if ($lang === 'es') {
+            $sql = "SELECT * FROM services WHERE active = 1 ORDER BY order_index ASC, id ASC";
+        } else {
+            $sql = "SELECT *, 
+                    IFNULL(NULLIF(title_{$lang}, ''), title) as title,
+                    IFNULL(NULLIF(short_description_{$lang}, ''), short_description) as short_description,
+                    IFNULL(NULLIF(description_{$lang}, ''), description) as description
+                    FROM services WHERE active = 1 ORDER BY order_index ASC, id ASC";
+        }
 
         $stmt = static::db()->query($sql);
         return $stmt->fetchAll();

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="<?= current_lang() ?>" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovate | Arquitectura robusta. Negocios imparables.</title>
+    <title><?= isset($title) ? "Innovate | " . e($title) : "Innovate | " . __('site.tagline', 'Arquitectura robusta. Negocios imparables.') ?></title>
     <meta name="description" content="<?= e(\App\Models\Setting::get('site_description', '')) ?>">
     <link rel="icon" type="image/png" href="/assets/images/favicon.png?v=1.1">
     <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png?v=1.1">
